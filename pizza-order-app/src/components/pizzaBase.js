@@ -1,0 +1,102 @@
+import React, { Fragment } from 'react'
+import { makeStyles } from '@material-ui/core/styles';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+
+import { Button } from '@material-ui/core'
+
+const useStyles = makeStyles(theme => ({
+    formControl: {
+        margin: theme.spacing(3),
+    },
+    root: {
+        minWidth: 500,
+
+    },
+    bullet: {
+        display: 'inline-block',
+        margin: '0 10px',
+        transform: 'scale(0.8)',
+    },
+    title: {
+        fontSize: 18,
+    },
+    pos: {
+        marginBottom: 20,
+    },
+}));
+
+const baseOptions = {
+    size: ['Small', 'Medium', 'Large'],
+    crust: ['Plain', 'Garlic', 'Parmesan', 'Thin'],
+    sauce: ['Marinara', 'BBQ', 'Alfredo']
+}
+
+function PizzaBase() {
+    const classes = useStyles();
+    const [value, setValue] = React.useState('');
+
+    const handleChange = event => {
+        setValue(event.target.value);
+    };
+
+    return (
+
+        <Fragment>
+            <Card className={classes.root}>
+                <CardContent>
+                    {Object.entries(baseOptions).map((option, index) => {
+                        return (
+                            <FormControl component="fieldset" className={classes.formControl}>
+                                <FormLabel component="legend">{option[0]}</FormLabel>
+                                <RadioGroup aria-label={option[0]} name={option[0]} value={value} onChange={handleChange}>
+                                    {
+                                        option[1].map((elem) => {
+                                            return (
+                                                <FormControlLabel name={option[0]} value={elem} control={<Radio />} label={elem} />
+                                            )
+                                        })
+                                    }
+                                </RadioGroup>
+                            </FormControl>
+                        )
+                    })
+                    }
+                    <br />
+                    <Button variant="contained" color="primary">Next</Button>
+                </CardContent>
+            </Card>
+        </Fragment>
+
+    )
+}
+
+export default PizzaBase
+
+
+
+{/* <Fragment>
+<FormControl component="fieldset" className={classes.formControl}>
+    <FormLabel component="legend">Size</FormLabel>
+    <RadioGroup aria-label="crust" name="crust1" value={value} onChange={handleChange}>
+        <FormControlLabel value="small" control={<Radio />} label="Small" />
+        <FormControlLabel value="medium" control={<Radio />} label="Medium" />
+        <FormControlLabel value="large" control={<Radio />} label="Large" />
+    </RadioGroup>
+</FormControl>
+<FormControl component="fieldset" className={classes.formControl}>
+    <FormLabel component="legend">Crust</FormLabel>
+    <RadioGroup aria-label="crust" name="crust1" value={value} onChange={handleChange}>
+        <FormControlLabel value="plain" control={<Radio />} label="Plain" />
+        <FormControlLabel value="garilc" control={<Radio />} label="Garlic" />
+        <FormControlLabel value="parmesan" control={<Radio />} label="Parmesan" />
+    </RadioGroup>
+</FormControl>
+</Fragment> */}
