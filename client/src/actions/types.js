@@ -9,3 +9,4 @@ export const SET_CRUST_TYPE = 'SET_CRUST_TYPE';
 export const ADD_TOPPING = 'ADD_TOPPING';
 export const REMOVE_TOPPING = 'REMOVE_TOPPING';
 export const CLEAR_TOPPINGS = 'CLEAR_TOPPINGS';
+export const CLEAR_PIZZA = 'CLEAR_PIZZA';

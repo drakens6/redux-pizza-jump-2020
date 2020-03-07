@@ -3,7 +3,9 @@ import { SET_CUSTOMER, CLEAR_CUSTOMER } from '../actions/types';
 const initialState = {
   name: '',
   email: '',
-  address: '',
+  street: '',
+  city: '',
+  state: '',
   phone: '',
 };
 
