@@ -1,13 +1,21 @@
-import { ADD_USER, UPDATE_USER } from '../actions';
+import { ADD_USER, UPDATE_USER, ADD_BASE } from '../actions';
 import {combineReducers} from 'redux';
 
-export default function reducers(users = [], action) {
+const defaultUser = {
+    name: '',
+    email: 'test',
+    address: '',
+    city: '',
+    state: '',
+    zip: '',
+    phone: '',
+}
+
+
+function users(user = defaultUser, action) {
     switch(action.type) {
         case ADD_USER:
-            console.log(users);
-            return [
-                ...users,
-                {
+            return {
                     name: action.user.name,
                     email: action.user.email,
                     address: action.user.address,
@@ -16,23 +24,37 @@ export default function reducers(users = [], action) {
                     zip: action.user.zip,
                     phone: action.user.phone
                 }
-            ]
 
         case UPDATE_USER:
-            for(let i = 0; i<users.length; i++) {
-                if (users[i].email === action.user.email) {
-                    users[i].name = action.user.name;
-                    users[i].email = action.user.email;
-                    users[i].address = action.user.address;
-                    users[i].city = action.user.city;
-                    users[i].state = action.user.state;
-                    users[i].zip = action.user.zip;
-                    users[i].phone = action.user.phone;
-                }
-            }
-            return users
+            console.log(user);
+                user[action.inputId] = action.value;
+                console.log(user);
+            return user
 
         default:
-            return users
+            return user
     }
 }
+
+const defaultPizza = {
+    sauce: 'normal',
+    dough: 'classic',
+    toppings: []
+}
+
+
+function pizzas(pizza = defaultPizza, action) {
+    switch(action.type) {
+        case ADD_BASE:
+            return 
+        default:
+            return pizza
+    }
+}
+
+const reducers = combineReducers({
+    users,
+    pizzas
+})
+
+export default reducers;
