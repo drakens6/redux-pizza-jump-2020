@@ -3,6 +3,11 @@ import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import React, { Component } from "react";
 import "../App.css";
+import FreeBreakfast from "@material-ui/icons/FreeBreakfast";
+import Phone from "@material-ui/icons/Phone";
+import Email from "@material-ui/icons/Email";
+import PeopleOutlined from "@material-ui/icons/PeopleOutline";
+import Language from "@material-ui/icons/Language";
 
 class Footer extends Component {
   render() {
@@ -27,7 +32,7 @@ class Footer extends Component {
                 </li>
                 <li>
                   A pizza store web application built using React and
-                  Material UI.
+                  Material-UI.
                 </li>
               </ul>
             </div>
@@ -62,8 +67,16 @@ class Footer extends Component {
                   Info:
                 </span>
               </li>
-              <li>+1 773-812-6322</li>
               <li>
+                <FreeBreakfast style={{ verticalAlign: "-5px" }} /> &nbsp; John
+                Cervantes
+              </li>
+              <li>
+                <Phone style={{ verticalAlign: "-5px" }} /> &nbsp; +1
+                773-812-6322
+              </li>
+              <li>
+                <Email style={{ verticalAlign: "-5px" }} /> &nbsp;
                 <a
                   style={{ color: "white" }}
                   href="mailto:johncervantes@protonmail.com"
@@ -73,15 +86,23 @@ class Footer extends Component {
                 </a>
               </li>
               <li>
+                <PeopleOutlined style={{ verticalAlign: "-5px" }} /> &nbsp;
                 <a
                   style={{ color: "white" }}
                   href="https://www.linkedin.com/in/j-cervantes/"
                   target="_blank"
                 >
-                  https://www.linkedin.com/in/j-cervantes/
+                  www.linkedin.com/in/j-cervantes/
                 </a>
               </li>
-              <li></li>
+              <li>
+                <Language style={{ verticalAlign: "-5px" }} /> &nbsp;
+                <a
+                  style={{ color: "white" }}
+                  href="https://www.badseal.com"
+                  target="_blank"
+                >www.badseal.com</a>
+              </li>
             </ul>
           </Grid>
         </Grid>
@@ -113,7 +134,7 @@ const styles = () => ({
   subFooter: {
     backgroundColor: "#66CCFF",
     padding: "8px 16px 8px 16px",
-    marginTop: "50px"
+    marginTop: "40px"
   },
   footerText: {
     color: "#fff",

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { TextField, MenuItem, Button, FormLabel } from "@material-ui/core";
+import { withRouter } from "react-router-dom";
 
-export default class toppings extends Component {
+class toppings extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -52,6 +53,7 @@ export default class toppings extends Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault();
     this.props.cb(
       this.state.pepperoni,
       this.state.pineapple,
@@ -59,10 +61,10 @@ export default class toppings extends Component {
       this.state.sausage,
       this.state.bacon,
       this.state.onion,
-      this.state.mushroom
+      this.state.mushroom,
+      3
     );
-    alert("Input saved!");
-    event.preventDefault();
+    this.props.history.push("/final");
   }
 
   render() {
@@ -238,3 +240,5 @@ export default class toppings extends Component {
     );
   }
 }
+
+export default withRouter(toppings);

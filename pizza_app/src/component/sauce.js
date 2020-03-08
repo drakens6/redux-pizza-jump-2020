@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { TextField, MenuItem, Button, FormLabel } from "@material-ui/core";
+import { withRouter } from "react-router-dom";
 
-export default class sauce extends Component {
+class sauce extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,9 +23,9 @@ export default class sauce extends Component {
   }
 
   handleSubmit(event) {
-    this.props.cb(this.state.sauceLevel, this.state.crustType);
-    alert("Input saved!");
     event.preventDefault();
+    this.props.cb(this.state.sauceLevel, this.state.crustType,2);
+    this.props.history.push("/toppings");
   }
 
   render() {
@@ -57,8 +58,8 @@ export default class sauce extends Component {
 
     return (
       <div>
-        <form onSubmit={this.handleSubmit} action="/toppings">
-          <FormLabel style={{fontWeight: 'bold'}}>
+        <form onSubmit={this.handleSubmit}>
+          <FormLabel style={{ fontWeight: "bold" }}>
             Sauce level: &nbsp;
             <TextField
               type="number"
@@ -72,7 +73,7 @@ export default class sauce extends Component {
           </FormLabel>
           <br></br>
           <br></br>
-          <FormLabel style={{fontWeight: 'bold'}}>
+          <FormLabel style={{ fontWeight: "bold" }}>
             Please select your crust type": (Thin, Flatbread, Thick, Traditional
             Pan, Deep dish, Sicilian) <br></br>
             <TextField
@@ -105,3 +106,5 @@ export default class sauce extends Component {
     );
   }
 }
+
+export default withRouter(sauce);

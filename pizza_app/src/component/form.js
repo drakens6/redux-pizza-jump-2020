@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { FormLabel, Input, Button } from "@material-ui/core";
+import { withRouter } from "react-router-dom";
+import Snackbar from "@material-ui/core/Snackbar";
 
-export default class form extends Component {
+class form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: "Please write an essay about your favorite DOM element.",
       first_name: "",
       last_name: "",
       address: "",
@@ -47,21 +48,22 @@ export default class form extends Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault();
     this.props.cb(
       this.state.first_name,
       this.state.last_name,
       this.state.address,
       this.state.phone,
-      this.state.email
+      this.state.email,
+      1
     );
-    alert("Input saved!");
-    event.preventDefault();
+    this.props.history.push("/sauce");
   }
 
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit} action="/sauce">
+        <form onSubmit={this.handleSubmit}>
           <FormLabel style={{ fontWeight: "bold" }}>
             First Name: &nbsp;
             <Input
@@ -126,3 +128,5 @@ export default class form extends Component {
     );
   }
 }
+
+export default withRouter(form);
