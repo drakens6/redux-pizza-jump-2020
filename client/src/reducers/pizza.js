@@ -4,7 +4,7 @@ import {
   ADD_TOPPING,
   REMOVE_TOPPING,
   CLEAR_TOPPINGS,
-  CLEAR_PIZZA,
+  RESET_PIZZA,
 } from '../actions/types';
 
 const initialState = {
@@ -37,7 +37,7 @@ export const pizza = (state = initialState, action) => {
       };
     case CLEAR_TOPPINGS:
       return Object.assign({}, state, { toppings: [] });
-    case CLEAR_PIZZA:
+    case RESET_PIZZA:
       return {
         ...initialState,
       };

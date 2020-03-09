@@ -1,19 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import Landing from './Landing';
 import SauceCrust from './SauceCrust';
 import Customer from './Customer';
 import Toppings from './Toppings';
 import ReviewOrder from './ReviewOrder';
+import Confirmation from './Confirmation';
 
-const Main = menuRed => {
+const Main = ({ menuRed }) => {
+  useEffect(() => {
+    console.log(menuRed);
+  }, []);
   return (
     <div>
-      <SauceCrust />
-      <Toppings />
-      <Customer />
-      <ReviewOrder />
+      {menuRed.step === 0 && <Landing />}
+      {menuRed.step === 1 && <SauceCrust />}
+      {menuRed.step === 2 && <Toppings />}
+      {menuRed.step === 3 && <Customer />}
+      {menuRed.step === 4 && <ReviewOrder />}
+      {menuRed.step === 5 && <Confirmation />}
     </div>
   );
 };

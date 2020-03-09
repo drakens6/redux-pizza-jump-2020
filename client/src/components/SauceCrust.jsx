@@ -7,7 +7,7 @@ import { Form, Button } from 'react-bootstrap';
 import { setSauceLevel, setCrustSize } from '../actions/pizza';
 import { nextMenu } from '../actions/menu';
 
-const SauceCrust = ({ pizzaRed, setSauceLevel, setCrustSize }) => {
+const SauceCrust = ({ pizzaRed, setSauceLevel, setCrustSize, nextMenu }) => {
   useEffect(() => {}, []);
 
   const handleNext = e => {
@@ -75,6 +75,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   setSauceLevel: level => dispatch(setSauceLevel(level)),
   setCrustSize: size => dispatch(setCrustSize(size)),
+  nextMenu: () => dispatch(nextMenu()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SauceCrust);

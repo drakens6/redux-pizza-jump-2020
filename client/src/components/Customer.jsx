@@ -114,7 +114,7 @@ const Customer = ({ customerRed, setCustomer, nextMenu }) => {
         </Form.Group>
         <div className="ml-auto">
           <Button variant="success" type="submit" disabled={!isValid}>
-            Next
+            Review Order
           </Button>
         </div>
       </Form>
