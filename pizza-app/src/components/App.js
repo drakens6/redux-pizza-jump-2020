@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Container } from 'semantic-ui-react';
 import UserForm from './UserForm';
 import PizzaForm from './PizzaForm';
