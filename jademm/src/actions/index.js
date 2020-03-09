@@ -1,7 +1,7 @@
 
 
 export const SAVE_DATA = 'SAVE_DATA';
-export const UPDATE_DATA = 'UPDATE_DATA';
+export const UPDATE_USER = 'UPDATE_USER';
 export const UPDATE_BASE = 'UPDATE_BASE';
 export const UPDATE_TOPPINGS = 'UPDATE_TOPPINGS';
 export const SET_UP_FORM = 'SET_UP_FORM';
@@ -10,14 +10,14 @@ export const EDIT_FORM_SUCCESS = 'EDIT_FORM_SUCCESS';
 
 export function saveData(data) {
     return {
-        type: SAVE_DATA,
+        type: SAVE_DATA, 
         data
     }
 }
 
-export function updateData(inputId, value) {
+export function updateUser(inputId, value) {
     return {
-        type: UPDATE_DATA,
+        type: UPDATE_USER,
         inputId,
         value
     }
@@ -31,11 +31,11 @@ export function updateBase(inputId, value) {
     }
 }
 
-export function updateToppings(inputId, values) {
+export function updateToppings(inputId, value) {
     return {
         type: UPDATE_TOPPINGS,
         inputId,
-        values
+        value
     }
 }
 

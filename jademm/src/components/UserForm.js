@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { saveData, updateData } from '../actions'
+import { saveData, updateUser } from '../actions'
 import { setupForm } from '../actions/thunks'
 import {getFormEdit } from '../selectors';
 
@@ -14,14 +14,15 @@ class UserForm extends React.Component {
         this.props.updateUser(e.target.id, e.target.value);
     }
 
+    //hold over from when internal state was managing the state
     handleSubmit = (e) => {
         e.preventDefault();
-        const user = this.props.user;
-        this.props.addUser(user);
+        const data = this.props.data;
+        this.props.addUser(data);
     }
 
     render() {
-        const {name, email, address, city, state, zip, phone} = this.props.user;
+        const {name, email, address, city, state, zip, phone} = this.props.data.user;
         return(
             <form>
                 <label>Name </label>
@@ -38,7 +39,7 @@ class UserForm extends React.Component {
                 <input type='text' id='zip' value={zip} onChange={this.handleChange}/><br/>
                 <label>Phone Number </label>
                 <input type='text' id='phone' placeholder="i.e. (555) 555-5555" value={phone} onChange={this.handleChange}/><br/>
-                <input type='submit' value='Save' onClick={this.handleSubmit}/>
+                <input type='submit' name='user' value='Save' onClick={this.handleSubmit}/>
             </form>
         )
     }
@@ -46,17 +47,17 @@ class UserForm extends React.Component {
 
 const mapStateToProps = (state) =>{
     return {
-        user: getFormEdit(state)
+        data: getFormEdit(state)
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addUser: (user) => {
-            dispatch(saveData(user))
+        addUser: (data) => {
+            dispatch(saveData(data))
         },
         updateUser: (inputId, value) => {
-            dispatch(updateData(inputId, value))
+            dispatch(updateUser(inputId, value))
         },
         setupForm: () => {
             dispatch(setupForm());

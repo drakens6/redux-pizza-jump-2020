@@ -5,24 +5,12 @@ import { setupForm } from '../actions/thunks'
 import { getFormEdit } from '../selectors';
 
 class PizzaBase extends React.Component {
-    constructor() {
-        super();
-        let set = new Set();
-        this.state = {
-            set: set
-        }
-    }
     componentDidMount() {
         this.props.setupForm();
     };
 
     handleChange = (e) => {
-        if(!this.state.set.add.includes('pepperoni')) {
-            this.setState({set: this.state.set.add(e.target.value)})
-        } else {
-            this.setState({set: this.state.set.delete(e.target.value)})
-        }
-        this.props.update(e.target.name, this.state.set.values());
+        this.props.update(e.target.name, e.target.value);
     }
 
     handleSave = (e) => {
@@ -38,6 +26,14 @@ class PizzaBase extends React.Component {
                 <label>What Toppings? </label><br/>
                 <input type="checkbox" id='pepperoni' name='topping' value='pepperoni' checked={toppings.includes('pepperoni')} onChange={this.handleChange}/>
                 <label> Pepperoni</label><br/>
+                <input type="checkbox" id='sausage' name='topping' value='sausage' checked={toppings.includes('sausage')} onChange={this.handleChange}/>
+                <label> Sausage</label><br/>
+                <input type="checkbox" id='bellPepper' name='topping' value='bellPepper' checked={toppings.includes('bellPepper')} onChange={this.handleChange}/>
+                <label> Bell Pepper</label><br/>
+                <input type="checkbox" id='tomato' name='topping' value='tomato' checked={toppings.includes('tomato')} onChange={this.handleChange}/>
+                <label> Tomato</label><br/>
+                <input type="checkbox" id='ham' name='topping' value='ham' checked={toppings.includes('ham')} onChange={this.handleChange}/>
+                <label> Canadian Bacon</label><br/>
                 <input type='submit' value='Save' onClick={this.handleSave}/>
 
             </form>

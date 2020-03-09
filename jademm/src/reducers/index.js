@@ -1,15 +1,17 @@
-import { SAVE_DATA, UPDATE_DATA, UPDATE_BASE, UPDATE_TOPPINGS, SET_UP_FORM, EDIT_FORM_PENDING, EDIT_FORM_SUCCESS } from '../actions';
+import { SAVE_DATA, UPDATE_USER, UPDATE_BASE, UPDATE_TOPPINGS, SET_UP_FORM, EDIT_FORM_PENDING, EDIT_FORM_SUCCESS } from '../actions';
 import {combineReducers} from 'redux';
 
 const initialState = {
-    data: {
-        name: '',
-        email: '',
-        address: '',
-        city: '',
-        state: '',
-        zip: '',
-        phone: '',
+    data: { 
+        user: {
+            name: '',
+            email: '',
+            address: '',
+            city: '',
+            state: '',
+            zip: '',
+            phone: ''
+        },
         pizza: {
             sauce: 'normal',
             dough: 'classic',
@@ -19,13 +21,15 @@ const initialState = {
     edit: {
         status: null,
         data: {
-            name: '',
-            email: '',
-            address: '',
-            city: '',
-            state: '',
-            zip: '',
-            phone: '',
+            user: {
+                name: '',
+                email: '',
+                address: '',
+                city: '',
+                state: '',
+                zip: '',
+                phone: ''
+            },
             pizza: {
                 sauce: 'normal',
                 dough: 'classic',
@@ -40,8 +44,7 @@ const initialState = {
 function saveReducer(state = initialState.data, action) {
     switch(action.type) {
         case SAVE_DATA:
-            console.log(action.data)
-            return action.data
+            return state
         
         default:
             return state
@@ -50,9 +53,9 @@ function saveReducer(state = initialState.data, action) {
 
 function editReducer(state = initialState.edit, action) {
     switch(action.type) {
-        case UPDATE_DATA:
+        case UPDATE_USER:
             const newForm = {...state.data}
-            newForm[action.inputId] = action.value;
+            newForm.user[action.inputId] = action.value;
 
             return {
                     ...state,
@@ -71,8 +74,15 @@ function editReducer(state = initialState.edit, action) {
             }
 
         case UPDATE_TOPPINGS:
-            const newTop = {...state.data}
-            newTop.pizza[action.inputId] = action.values;
+            let newTop = {...state.data}
+           
+            if(!newTop.pizza.toppings.includes(action.value)) {
+                newTop.pizza.toppings.push(action.value);
+            } else {
+                newTop.pizza.toppings = state.data.pizza.toppings.filter(item => {
+                    return item !== action.value
+                })
+            }
 
             return {
                 ...state,
