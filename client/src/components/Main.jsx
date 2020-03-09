@@ -7,7 +7,7 @@ import Customer from './Customer';
 import Toppings from './Toppings';
 import ReviewOrder from './ReviewOrder';
 
-const Main = props => {
+const Main = menuRed => {
   return (
     <div>
       <SauceCrust />
@@ -20,7 +20,9 @@ const Main = props => {
 
 Main.propTypes = {};
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  menuRed: state.menu,
+});
 
 const mapDispatchToProps = dispatch => ({});
 

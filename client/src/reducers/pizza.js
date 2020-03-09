@@ -1,5 +1,5 @@
 import {
-  SET_CRUST_TYPE,
+  SET_CRUST_SIZE,
   SET_SAUCE_LEVEL,
   ADD_TOPPING,
   REMOVE_TOPPING,
@@ -8,8 +8,8 @@ import {
 } from '../actions/types';
 
 const initialState = {
-  sauceLevel: '',
-  crustType: '',
+  sauceLevel: 0,
+  crustSize: 8,
   toppings: [],
 };
 
@@ -20,10 +20,10 @@ export const pizza = (state = initialState, action) => {
         ...state,
         sauceLevel: action.payload,
       };
-    case SET_CRUST_TYPE:
+    case SET_CRUST_SIZE:
       return {
         ...state,
-        crustType: action.payload,
+        crustSize: action.payload,
       };
     case ADD_TOPPING:
       return {

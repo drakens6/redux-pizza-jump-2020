@@ -4,8 +4,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { Form, Button } from 'react-bootstrap';
+import { setCustomer } from '../actions/customer';
+import { nextMenu } from '../actions/menu';
 
-const Customer = ({}) => {
+const Customer = ({ customerRed, setCustomer, nextMenu }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -23,6 +25,10 @@ const Customer = ({}) => {
     formData.state.trim() &&
     formData.phone.trim();
 
+  useEffect(() => {
+    setFormData(() => ({ ...customerRed }));
+  }, []);
+
   const handleInputChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     // const name = e.target.name;
@@ -38,6 +44,8 @@ const Customer = ({}) => {
   const handleNext = e => {
     e.preventDefault();
     console.log('Next!');
+    setCustomer(formData);
+    nextMenu();
   };
 
   return (
@@ -116,8 +124,13 @@ const Customer = ({}) => {
 
 Customer.propTypes = {};
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  customerRed: state.customer,
+});
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  setCustomer: data => dispatch(setCustomer(data)),
+  nextMenu: () => dispatch(nextMenu()),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Customer);
