@@ -17,7 +17,7 @@ class AddCustomer extends React.Component{
         const action = {
             type: 'ADD_CUSTOMER',
             payload: {
-                id: this.props.customers.length+1,
+                id: this.props.orders.length+1,
                 name:this.state.newCustName,
                 email: this.state.newCustEmail,
                 phone:this.state.newCustPhone,
@@ -32,9 +32,7 @@ class AddCustomer extends React.Component{
     render() {
         //console.log("[2. Props in AddCustomer]: ", this.props)
         return (
-            <div
-                
-            >
+            <div>
                 <label> Name: 
                     <input 
                         type="text" name="name" 
@@ -80,7 +78,7 @@ class AddCustomer extends React.Component{
                 <br/>
                 
                 <button onClick={this.handleAddClick}>Add New Customer</button>
-            </div>
+           </div>
         )
     }
 }
@@ -89,7 +87,8 @@ class AddCustomer extends React.Component{
 function mapStateToProps(state){
     // console.log('[1. State of the store, mapStateToProps ]', state)
     return{
-        customers:state.customers
+        //customers:state.customers
+        orders:state.orders
     }
 }
 

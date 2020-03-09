@@ -4,74 +4,86 @@ import { withRouter} from 'react-router-dom'
 
 class AddPizzaSauceAndCrust extends React.Component{
 
-    // state = {
-    //     newCustName: '',
-    //     newCustEmail:'',
-    //     newCustPhone:'',
-    //     newCustAddress:''
-    // }
+    constructor(props){
+        super(props)
+        this.state = {
+            newPizzaCrust:'',
+            newPizzaSauce:''
+        }
+        this.handleAddClick=this.handleAddClick.bind(this)
+    }
+  
 
-    
-    // handleAddClick = () => {
-    //     console.log("[3. EVENT HANDLER]: ", this.state)
-    //     const action = {
-    //         type: 'ADD_CUSTOMER',
-    //         payload: {
-    //             id: this.props.customers.length+1,
-    //             name:this.state.newCustName,
-    //             email: this.state.newCustEmail,
-    //             phone:this.state.newCustPhone,
-    //             address:this.state.newCustAddress
-    //         }
-    //     }
-    //     console.log("[4. ACTION OBJECT]: ", action)
+   handleAddClick = () =>  {
+       console.log("[3. EVENT HANDLER]: ", this.state)
+        const action = {
+            type: 'ADD_CRUST_SAUCE',
+            payload: {
+                pizzaCrust: this.state.newPizzaCrust,
+                pizzaSauce:this.state.newPizzaSauce
+            }
+        }
+        console.log("[4. ACTION OBJECT]: ", action)
 
-    //     this.props.dispatch(action)
-    // }
-
-    render() {
+        this.props.dispatch(action)
+    }
         // console.log("[2. Props in AddSauceCrust]: ", this.props)
+        render(){
         return (
-            <div >
-                <h1>Add your pizza's sauce and crust here</h1>
-            <h2>Sauces: </h2>
-            {
+            <div>
+                <h1> Build Your Pizza Now! </h1>
+
+                <h2>Select One Crust Type:</h2>
+                
+                   {
+                    this.props.crusts.map( crust => {
+                        return(
+                            <div key={crust.id}>
+                                <input 
+                                    type="radio" 
+                                    key={crust.id} 
+                                    id={crust.id}
+                                    name={this.state.newPizzaCrust}
+                                    value={crust.name} 
+                                    onChange={ event=>
+                                        this.setState({newPizzaCrust:event.currentTarget.value})
+                                    }
+                                />
+                                <label>{crust.name}</label>   
+                            </div>
+                        )
+                    })
+                }
+                <br />
+
+                <h2>Select One Pizza Sauce: </h2>
+                {
                 this.props.sauces.map( sauce => {
                     return(
-                        <div>
-                            <input type="radio" key={sauce.id}/>
-                            <label>{sauce.name}</label>  
+                        <div key={sauce.id}>
+                            <input 
+                                type="radio" 
+                                key={sauce.id} 
+                                id={sauce.id}
+                                name={this.state.newPizzaSauce} 
+                                value={sauce.name} 
+                                onChange={event => 
+                                    this.setState({newPizzaSauce:event.currentTarget.value})
+                                }
+                            />
+                            <label>{sauce.name}</label>   
                         </div>
-                        // <li key={sauce.id}>{sauce.name}</li>
                     )
-                    // return(
-                    //     <React.Fragment>
-                    //         <input type="radio" key={item.id} id={item} name={item} value={item}/>
-                    //         <label for={item}>{item}</label>
-                    //     </React.Fragment>
-                    // )
                 })
-            }
-            <h2>Crust Types:</h2>
-            {
-                this.props.crusts.map( crust => {
-                    return (
-                        <li key={crust.id}>{crust.name}</li>
-                    )
-                    // return(
-                    //     <React.Fragment>
-                    //         <input type="radio" key={item.id} id={item} name={item} value={item}/>
-                    //         <label for={item}>{item}</label>
-                    //     </React.Fragment>
-                    // )
-                })
-            }
-            <br />
-            <button>Add to my pizza</button>
+                }
+                <br/>
+                
+                <button onClick={this.handleAddClick}>Add to my pizza</button>
            </div>
         )
     }
 }
+  
 
 // state is coming from the redux store
 function mapStateToProps(state){
