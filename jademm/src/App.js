@@ -7,6 +7,7 @@ import './App.css'
 
 import Home from './components/Home';
 import PizzaBase from './components/PizzaBase';
+import PizzaToppings from './components/PizzaToppings';
 
 export default class App extends React.Component {
 
@@ -22,10 +23,16 @@ export default class App extends React.Component {
                 <li>
                   <button><Link to="/base">Pizza Base</Link></button>
                 </li>
+                <li>
+                  <button><Link to="/toppings">Pizza Toppings</Link></button>
+                </li>
               </ul>
             </nav>
 
             <Switch>
+            <Route path="/toppings">
+                <PizzaToppings />
+              </Route>
               <Route path="/base">
                 <PizzaBase />
               </Route>

@@ -1,4 +1,4 @@
-import { SAVE_DATA, UPDATE_DATA, UPDATE_BASE, SET_UP_FORM, EDIT_FORM_PENDING, EDIT_FORM_SUCCESS } from '../actions';
+import { SAVE_DATA, UPDATE_DATA, UPDATE_BASE, UPDATE_TOPPINGS, SET_UP_FORM, EDIT_FORM_PENDING, EDIT_FORM_SUCCESS } from '../actions';
 import {combineReducers} from 'redux';
 
 const initialState = {
@@ -67,6 +67,16 @@ function editReducer(state = initialState.edit, action) {
             return {
                 ...state,
                 data: newBase,
+                changed: true
+            }
+
+        case UPDATE_TOPPINGS:
+            const newTop = {...state.data}
+            newTop.pizza[action.inputId] = action.values;
+
+            return {
+                ...state,
+                data: newTop,
                 changed: true
             }
 
