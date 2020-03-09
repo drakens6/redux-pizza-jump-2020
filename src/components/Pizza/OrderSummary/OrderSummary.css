@@ -1,0 +1,29 @@
+.OrderSummary {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.OrderSummary h3 {
+  font-size: 1.5rem;
+  color: #4d2b00;
+}
+
+.OrderSummary p {
+  display: block;
+  margin: auto;
+  color: #000;
+}
+
+.OrderSummary ul {
+  display: flex;
+  flex-direction: column;
+}
+.OrderSummary ul li {
+  text-transform: capitalize;
+  padding: 0;
+  display: block;
+  width: 50%;
+  text-align: left;
+  list-style: none;
+}

@@ -1,0 +1,49 @@
+.pizza {
+  position: relative;
+  width: 400px;
+  margin: auto;
+  height: 400px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.alert {
+  display: block;
+  background-color: rgb(196, 134, 43);
+  border-radius: 10px;
+  position: absolute;
+  top: 45%;
+  left: 10%;
+  width: 80%;
+  color: #fff;
+  z-index: 50;
+  margin: auto;
+}
+
+@media (min-width: 300px) {
+  .pizza {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (min-width: 500px) and (min-height: 400px) {
+  .pizza {
+    width: 325px;
+    height: 325px;
+  }
+}
+
+@media (min-width: 500px) and (min-height: 501px) {
+  .pizza {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@media (min-width: 1000px) and (min-height: 700px) {
+  .pizza {
+    width: 600px;
+    height: 600px;
+  }
+}

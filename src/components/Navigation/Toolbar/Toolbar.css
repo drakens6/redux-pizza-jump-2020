@@ -1,0 +1,36 @@
+.Toolbar {
+  height: 56px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* background: -webkit-linear-gradient(to right, #fc4a1a, #f7b733); /* Chrome 10-25, Safari 5.1-6 */
+  /*background: linear-gradient(to right, #fc4a1a, #f7b733); */
+  background: #fc4b1a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  z-index: 90;
+}
+
+.Toolbar img {
+  height: 100%;
+}
+
+.Logo {
+  height: 90%;
+}
+
+@media (max-width: 499px) {
+  .DesktopOnly {
+    display: none;
+  }
+}
+
+@media (max-width: 450px) {
+  .Logo__Container {
+    display: none
+  }
+}

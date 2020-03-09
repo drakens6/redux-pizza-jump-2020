@@ -1,0 +1,308 @@
+* {
+  box-sizing: border-box;
+}
+
+.dough {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #ffc61c;
+  border: 15px solid #e09b31;
+}
+
+.salamis,
+.mushrooms,
+.corns,
+.vegs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.salamis {
+  z-index: 1;
+}
+
+.corns {
+  z-index: 4;
+}
+
+.sauce {
+  z-index: 2;
+}
+
+.mushrooms {
+  z-index: 3;
+}
+
+.vegs {
+  z-index: 4;
+}
+
+.sauces div {
+  width: 10%;
+  height: 85%;
+  width: 85%;
+  position: absolute;
+  top: 7%;
+  right: 8%;
+  background-color: rgb(153, 0, 0);
+  border-radius: 50%;
+}
+
+.sauce1{
+  top: 50%;
+  left: 50%;
+  /* align-c */
+}
+.salamis div {
+  position: absolute;
+  width: 15%;
+  height: 15%;
+  background-color: rgb(223, 31, 31);
+  border-radius: 50%;
+}
+
+.sal1 {
+  top: 10%;
+  left: 25%;
+}
+.sal2 {
+  top: 30%;
+  left: 15%;
+}
+.sal3 {
+  top: 32%;
+  left: 40%;
+}
+.sal4 {
+  top: 12%;
+  left: 56%;
+}
+.sal5 {
+  top: 34%;
+  left: 70%;
+}
+.sal6 {
+  top: 56%;
+  left: 72%;
+}
+.sal7 {
+  top: 75%;
+  left: 50%;
+}
+.sal8 {
+  top: 50%;
+  left: 50%;
+}
+.sal9 {
+  top: 55%;
+  left: 30%;
+}
+.sal10 {
+  top: 50%;
+  left: 10%;
+}
+.sal11 {
+  top: 76%;
+  left: 28%;
+}
+
+.mushrooms div {
+  position: absolute;
+  height: 15%;
+  width: 10%;
+}
+
+.mushrooms div > .stem {
+  position: absolute;
+  bottom: 0;
+  left: 35%;
+  width: 30%;
+  height: 60%;
+  background-color: #c3b5ae;
+}
+
+.mushrooms div > .cup {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 40%;
+  background-color: #b49989;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+.mushroom1 {
+  top: 10%;
+  left: 40%;
+  transform: rotate(63deg);
+}
+.mushroom2 {
+  top: 27%;
+  left: 22%;
+  transform: rotate(-43deg);
+}
+.mushroom3 {
+  top: 35%;
+  left: 46%;
+  transform: rotate(34deg);
+}
+.mushroom4 {
+  top: 24%;
+  left: 70%;
+  transform: rotate(87deg);
+}
+.mushroom5 {
+  top: 53%;
+  left: 72%;
+  transform: rotate(-31deg);
+}
+.mushroom6 {
+  top: 14%;
+  left: 65%;
+  transform: rotate(-20deg);
+}
+.mushroom7 {
+  top: 70%;
+  left: 63%;
+  transform: rotate(40deg);
+}
+.mushroom8 {
+  top: 64%;
+  left: 38%;
+  transform: rotate(-46deg);
+}
+.mushroom9 {
+  top: 57%;
+  left: 12%;
+  transform: rotate(53deg);
+}
+
+.corns div {
+  width: 3%;
+  height: 3%;
+  position: absolute;
+  background-color: rgb(255, 252, 82);
+  border-radius: 50%;
+}
+
+.corn1 {
+  top: 10%;
+  left: 43%;
+}
+.corn2 {
+  top: 13%;
+  left: 61%;
+}
+.corn3 {
+  top: 35%;
+  left: 20%;
+}
+.corn4 {
+  top: 34%;
+  left: 57%;
+}
+.corn5 {
+  top: 10%;
+  left: 43%;
+}
+.corn6 {
+  top: 40%;
+  left: 71%;
+}
+.corn7 {
+  top: 65%;
+  left: 23%;
+}
+.corn8 {
+  top: 60%;
+  left: 47%;
+}
+.corn9 {
+  top: 66%;
+  left: 72%;
+}
+.corn10 {
+  top: 81%;
+  left: 33%;
+}
+.corn11 {
+  top: 84%;
+  left: 56%;
+}
+.corn12 {
+  top: 50%;
+  left: 65%;
+}
+
+.vegs div {
+  position: absolute;
+  width: 2%;
+  height: 6.5%;
+  background-color: rgb(28, 131, 2);
+}
+
+.veg1 {
+  top: 20%;
+  left: 30%;
+  transform: rotate(43deg);
+}
+.veg2 {
+  top: 27%;
+  left: 65%;
+  transform: rotate(-20deg);
+}
+.veg3 {
+  top: 38%;
+  left: 15%;
+  transform: rotate(71deg);
+}
+.veg4 {
+  top: 40%;
+  left: 52%;
+  transform: rotate(-67deg);
+}
+.veg5 {
+  top: 56%;
+  left: 87%;
+  transform: rotate(110deg);
+}
+.veg6 {
+  top: 67%;
+  left: 12%;
+  transform: rotate(135deg);
+}
+.veg7 {
+  top: 87%;
+  left: 50%;
+  transform: rotate(72deg);
+}
+.veg8 {
+  top: 60%;
+  left: 63%;
+  transform: rotate(-43deg);
+}
+.veg9 {
+  top: 78%;
+  left: 36%;
+  transform: rotate(43deg);
+}
+.veg10 {
+  top: 65%;
+  left: 37%;
+  transform: rotate(-63deg);
+}
+.veg11 {
+  top: 34%;
+  left: 80%;
+  transform: rotate(120deg);
+}
+.veg12 {
+  top: 12%;
+  left: 51%;
+  transform: rotate(43deg);
+  color: #161616;
+}
