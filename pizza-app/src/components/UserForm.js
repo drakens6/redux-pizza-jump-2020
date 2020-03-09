@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import store from '../store';
 import { addUser, addLocation } from '../actions';
 
 const UserForm = (props) => {
@@ -18,8 +17,8 @@ const UserForm = (props) => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    store.dispatch(addUser(user));
-    store.dispatch(addLocation(location));
+    props.submitUser(user);
+    props.submitLocation(location);
     setUser('');
     setLocation('');
     return;
@@ -40,4 +39,16 @@ const UserForm = (props) => {
   )
 }
 
-export default connect(null, { })(UserForm);
+const mapStateToProps = (state) => ({
+  user: state.user,
+  location: state.location
+})
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    submitUser: (user) => dispatch(addUser(user)),
+    submitLocation: (location) => dispatch(addLocation(location))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserForm);
