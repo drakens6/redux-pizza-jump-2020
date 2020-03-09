@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import TabPanel from './tabPanel'
+import PropTypes from 'prop-types'
 
 import { makeStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
@@ -18,7 +19,12 @@ const useStyles = makeStyles(theme => ({
     },
     heading: {
         fontSize: theme.typography.pxToRem(15),
-        fontWeight: theme.typography.fontWeightRegular,
+        flexBasis: '33.33%',
+        flexShrink: 0,
+    },
+    secondaryHeading: {
+        fontSize: theme.typography.pxToRem(15),
+        color: theme.palette.text.secondary,
     },
 }));
 
@@ -36,12 +42,19 @@ const selectOptions = [
 function PizzaOrder() {
 
     const classes = useStyles();
+
+    const [expanded, setExpanded] = useState(false);
+
+    const handleChange = panel => (event, isExpanded) => {
+        setExpanded(isExpanded ? panel : false);
+    };
+
     return (
         <TabPanel value='2' index='2'>
             <h2>Pizza Order</h2>
 
             <div className={classes.root}>
-                <ExpansionPanel>
+                <ExpansionPanel expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                     <ExpansionPanelSummary
                         expandIcon={<ExpandMoreIcon />}
                         aria-controls="panel1a-content"
@@ -56,7 +69,7 @@ function PizzaOrder() {
                     </ExpansionPanelDetails>
                 </ExpansionPanel>
 
-                <ExpansionPanel>
+                <ExpansionPanel expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
                     <ExpansionPanelSummary
                         expandIcon={<ExpandMoreIcon />}
                         aria-controls="panel1a-content"
@@ -71,7 +84,7 @@ function PizzaOrder() {
                     </ExpansionPanelDetails>
                 </ExpansionPanel>
                 <br />
-                <Button variant="contained" color="primary">Add to order</Button>
+                <Button variant="contained" color="primary" href="/review">Add to order</Button>
             </div>
         </TabPanel >
     )

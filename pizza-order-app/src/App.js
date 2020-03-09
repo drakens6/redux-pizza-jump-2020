@@ -40,28 +40,20 @@ function App() {
     }
   ]
 
-  let [page, changeTab] = useState(0)
-
-  function changeContext(event, newValue) {
-    console.log(newValue)
-    changeTab(event.value);
-  }
-
   return (
-    <Router>
-      <div className="App">
-        <AppBar>
-          <Tabs aria-label="simple tabs example">
-            {Links.map((link, index) => {
-              return (
-                //value={index}
-                //<Link as={Link} to={link.to}></Link>
-                <Tab key={link.name} label={link.name} component={Link} to={link.to}></Tab>
-              )
-            })}
-          </Tabs>
-        </AppBar>
-        <Box display="flex">
+    <Box display="flex" justifyContent="center" m={1} p={1}>
+      <Router>
+        <div className="App">
+          <AppBar>
+            <Tabs aria-label="simple tabs example" centered>
+              {Links.map((link, index) => {
+                return (
+                  <Tab key={link.name} label={link.name} component={Link} to={link.to}></Tab>
+                )
+              })}
+            </Tabs>
+          </AppBar>
+
           <Switch>
             <Route path="/user">
               <User></User>
@@ -76,9 +68,9 @@ function App() {
               <Home />
             </Route>
           </Switch>
-        </Box>
-      </div>
-    </Router>
+        </div>
+      </Router>
+    </Box>
   );
 }
 

@@ -2,7 +2,6 @@ import React, { Fragment } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
@@ -41,10 +40,18 @@ const baseOptions = {
 
 function PizzaBase() {
     const classes = useStyles();
-    const [value, setValue] = React.useState('');
+    const [size, setSize] = React.useState('');
+    const [crust, setCrust] = React.useState('');
+    const [sauce, setSauce] = React.useState('');
 
     const handleChange = event => {
-        setValue(event.target.value);
+        if(event.target.id === "size"){
+            setSize(event.target.value);
+        }else if(event.target.id === "crust"){
+            setCrust(event.target.value);
+        }else if(event.target.id === "sauce"){
+            setSauce(event.target.value);
+        }
     };
 
     return (
@@ -52,11 +59,11 @@ function PizzaBase() {
         <Fragment>
             <Card className={classes.root}>
                 <CardContent>
-                    {Object.entries(baseOptions).map((option, index) => {
+                    {Object.entries(baseOptions).map((option) => {
                         return (
-                            <FormControl component="fieldset" className={classes.formControl}>
+                            <FormControl key={option} component="fieldset" className={classes.formControl}>
                                 <FormLabel component="legend">{option[0]}</FormLabel>
-                                <RadioGroup aria-label={option[0]} name={option[0]} value={value} onChange={handleChange}>
+                                <RadioGroup aria-label={option[0]} name={option[0]}  onChange={handleChange} id={option}>
                                     {
                                         option[1].map((elem) => {
                                             return (
@@ -70,7 +77,7 @@ function PizzaBase() {
                     })
                     }
                     <br />
-                    <Button variant="contained" color="primary">Next</Button>
+                    {/* <Button variant="contained" color="primary">Next</Button> */}
                 </CardContent>
             </Card>
         </Fragment>
@@ -79,24 +86,3 @@ function PizzaBase() {
 }
 
 export default PizzaBase
-
-
-
-{/* <Fragment>
-<FormControl component="fieldset" className={classes.formControl}>
-    <FormLabel component="legend">Size</FormLabel>
-    <RadioGroup aria-label="crust" name="crust1" value={value} onChange={handleChange}>
-        <FormControlLabel value="small" control={<Radio />} label="Small" />
-        <FormControlLabel value="medium" control={<Radio />} label="Medium" />
-        <FormControlLabel value="large" control={<Radio />} label="Large" />
-    </RadioGroup>
-</FormControl>
-<FormControl component="fieldset" className={classes.formControl}>
-    <FormLabel component="legend">Crust</FormLabel>
-    <RadioGroup aria-label="crust" name="crust1" value={value} onChange={handleChange}>
-        <FormControlLabel value="plain" control={<Radio />} label="Plain" />
-        <FormControlLabel value="garilc" control={<Radio />} label="Garlic" />
-        <FormControlLabel value="parmesan" control={<Radio />} label="Parmesan" />
-    </RadioGroup>
-</FormControl>
-</Fragment> */}
