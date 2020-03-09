@@ -1,60 +1,101 @@
-import { ADD_USER, UPDATE_USER, ADD_BASE } from '../actions';
+import { SAVE_DATA, UPDATE_DATA, UPDATE_BASE, SET_UP_FORM, EDIT_FORM_PENDING, EDIT_FORM_SUCCESS } from '../actions';
 import {combineReducers} from 'redux';
 
-const defaultUser = {
-    name: '',
-    email: 'test',
-    address: '',
-    city: '',
-    state: '',
-    zip: '',
-    phone: '',
-}
-
-
-function users(user = defaultUser, action) {
-    switch(action.type) {
-        case ADD_USER:
-            return {
-                    name: action.user.name,
-                    email: action.user.email,
-                    address: action.user.address,
-                    city: action.user.city,
-                    state: action.user.state,
-                    zip: action.user.zip,
-                    phone: action.user.phone
-                }
-
-        case UPDATE_USER:
-            console.log(user);
-                user[action.inputId] = action.value;
-                console.log(user);
-            return user
-
-        default:
-            return user
+const initialState = {
+    data: {
+        name: '',
+        email: '',
+        address: '',
+        city: '',
+        state: '',
+        zip: '',
+        phone: '',
+        pizza: {
+            sauce: 'normal',
+            dough: 'classic',
+            toppings: []
+        },
+    },
+    edit: {
+        status: null,
+        data: {
+            name: '',
+            email: '',
+            address: '',
+            city: '',
+            state: '',
+            zip: '',
+            phone: '',
+            pizza: {
+                sauce: 'normal',
+                dough: 'classic',
+                toppings: []
+            },
+        },
+        changed: null
     }
 }
 
-const defaultPizza = {
-    sauce: 'normal',
-    dough: 'classic',
-    toppings: []
+
+function saveReducer(state = initialState.data, action) {
+    switch(action.type) {
+        case SAVE_DATA:
+            console.log(action.data)
+            return action.data
+        
+        default:
+            return state
+    }
 }
 
-
-function pizzas(pizza = defaultPizza, action) {
+function editReducer(state = initialState.edit, action) {
     switch(action.type) {
-        case ADD_BASE:
-            return 
+        case UPDATE_DATA:
+            const newForm = {...state.data}
+            newForm[action.inputId] = action.value;
+
+            return {
+                    ...state,
+                    data: newForm,
+                    changed: true
+            }
+
+        case UPDATE_BASE:
+            const newBase = {...state.data}
+            newBase.pizza[action.inputId] = action.value;
+
+            return {
+                ...state,
+                data: newBase,
+                changed: true
+            }
+
+        case SET_UP_FORM:
+            return {
+                ...state,
+                data: action.values,
+                changed: false
+            }
+        
+        case EDIT_FORM_PENDING:
+            return {
+                ...state,
+                status: EDIT_FORM_PENDING
+            }
+        case EDIT_FORM_SUCCESS:
+            return {
+                status: EDIT_FORM_SUCCESS,
+                data: action.values,
+                changed: false
+            }
         default:
-            return pizza
+            return state
     }
 }
 
 const reducers = combineReducers({
-    users,
-    pizzas
+    data: saveReducer,
+    edit: editReducer
 })
 
 export default reducers;

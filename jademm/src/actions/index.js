@@ -1,28 +1,51 @@
 
 
-export const ADD_USER = 'ADD_USER';
-export const UPDATE_USER = 'UPDATE_USER';
-export const ADD_BASE = 'ADD_BASE';
+export const SAVE_DATA = 'SAVE_DATA';
+export const UPDATE_DATA = 'UPDATE_DATA';
+export const UPDATE_BASE = 'UPDATE_BASE';
+export const SET_UP_FORM = 'SET_UP_FORM';
+export const EDIT_FORM_PENDING = 'EDIT_FORM_PENDING';
+export const EDIT_FORM_SUCCESS = 'EDIT_FORM_SUCCESS';
 
-export function addUser(user) {
+export function saveData(data) {
     return {
-        type: ADD_USER,
-        user
+        type: SAVE_DATA,
+        data
     }
 }
 
-export function updateUser(inputId, value) {
+export function updateData(inputId, value) {
     return {
-        type: UPDATE_USER,
+        type: UPDATE_DATA,
         inputId,
         value
     }
 }
 
-export function addBase(sauce, dough) {
+export function updateBase(inputId, value) {
     return {
-        type: ADD_BASE,
-        sauce,
-        dough
+        type: UPDATE_BASE,
+        inputId,
+        value
+    }
+}
+
+export function setUpForm(values) {
+    return {
+        type: SET_UP_FORM,
+        values
+    }
+}
+
+export function editFormPending() {
+    return {
+        type: EDIT_FORM_PENDING
+    }
+}
+
+export function editFormSuccess(values) {
+    return {
+        type: EDIT_FORM_SUCCESS,
+        values
     }
 }
