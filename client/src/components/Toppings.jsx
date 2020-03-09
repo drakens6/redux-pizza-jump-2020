@@ -22,11 +22,11 @@ const Toppings = ({
   return (
     <Fragment>
       <h1 className="display-4">Toppings</h1>
-      <p>Just go with the cheese!</p>
+      <p>Just go with the cheese... We know you'll like it!</p>
       <Form onSubmit={e => handleNext(e)}>
         <div className="ml-auto">
           <Button variant="success" type="submit">
-            Next
+            Ok
           </Button>
         </div>
       </Form>

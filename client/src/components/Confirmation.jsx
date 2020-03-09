@@ -7,19 +7,19 @@ import { resetMenu } from '../actions/menu';
 import { clearCustomer } from '../actions/customer';
 import { resetPizza } from '../actions/pizza';
 
-const Confirmation = ({ resetMenu }) => {
+const Confirmation = ({ resetMenu, customerRed }) => {
   useEffect(() => {
     setTimeout(() => {
       clearCustomer();
       resetPizza();
       resetMenu();
-    }, 6000);
+    }, 7000);
   });
 
   return (
     <Fragment>
       <h1 className="display-4">Order Confirmation</h1>
-      <p>Thank you for your order!</p>
+      <p>Thank you for your order, {customerRed.name}!</p>
       <p>Your pizza may arrive shortly... or not at all :p</p>
     </Fragment>
   );
@@ -27,7 +27,9 @@ const Confirmation = ({ resetMenu }) => {
 
 Confirmation.propTypes = {};
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  customerRed: state.customer,
+});
 
 const mapDispatchToProps = dispatch => ({
   resetMenu: () => dispatch(resetMenu()),

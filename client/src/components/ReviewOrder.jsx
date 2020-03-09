@@ -2,10 +2,10 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { Form, Button } from 'react-bootstrap';
+import { Button, Col, Row } from 'react-bootstrap';
 import { nextMenu } from '../actions/menu';
 
-const ReviewOrder = ({ nextMenu }) => {
+const ReviewOrder = ({ nextMenu, customerRed, pizzaRed }) => {
   const handleNext = e => {
     e.preventDefault();
     nextMenu();
@@ -15,22 +15,30 @@ const ReviewOrder = ({ nextMenu }) => {
     <Fragment>
       <h1 className="display-4">Review Order</h1>
       <p>Please review your order.</p>
-      <p>...</p>
-      <p>We think everything's fine, just click confirm.</p>
-      <Form onSubmit={e => handleNext(e)}>
-        <div className="ml-auto">
-          <Button variant="success" type="submit">
-            Confirm Order
-          </Button>
-        </div>
-      </Form>
+      <div>
+        <Row>
+          <Col>Name</Col>
+          <Col>{customerRed.name}</Col>
+        </Row>
+        <Row>
+          <Col>Email</Col>
+          <Col>{customerRed.email}</Col>
+        </Row>
+      </div>
+      <p className="mt-3">We think everything's fine, just click confirm.</p>
+      <Button variant="success" type="submit" onClick={e => handleNext(e)}>
+        Confirm Order
+      </Button>
     </Fragment>
   );
 };
 
 ReviewOrder.propTypes = {};
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  customerRed: state.customer,
+  pizzaRed: state.pizza,
+});
 
 const mapDispatchToProps = dispatch => ({
   nextMenu: () => dispatch(nextMenu()),
