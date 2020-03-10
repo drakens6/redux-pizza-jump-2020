@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { getFormEdit } from '../selectors';
+import { getData } from '../selectors';
 
 class ReviewOrder extends React.Component {
 
@@ -34,7 +34,7 @@ class ReviewOrder extends React.Component {
 
 const mapStateToProps = (state) =>{
     return {
-        data: getFormEdit(state)
+        data: getData(state)
     }
 }
 

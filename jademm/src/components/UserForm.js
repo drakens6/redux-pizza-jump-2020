@@ -1,24 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { saveData, updateUser } from '../actions'
-import { setupForm } from '../actions/thunks'
-import {getFormEdit } from '../selectors';
+import { updateUser } from '../actions'
+import {getData } from '../selectors';
 
 class UserForm extends React.Component {
-
-    componentDidMount = () => {
-        this.props.setupForm();
-    }
-    
     handleChange = (e) => {
         this.props.updateUser(e.target.id, e.target.value);
-    }
-
-    //hold over from when internal state was managing the state
-    handleSubmit = (e) => {
-        e.preventDefault();
-        const data = this.props.data;
-        this.props.addUser(data);
     }
 
     render() {
@@ -40,7 +27,6 @@ class UserForm extends React.Component {
                 <input type='text' id='zip' value={zip} onChange={this.handleChange}/><br/>
                 <label>Phone Number </label>
                 <input type='text' id='phone' placeholder="i.e. (555) 555-5555" value={phone} onChange={this.handleChange}/><br/>
-                <input type='submit' name='user' value='Save' onClick={this.handleSubmit}/>
             </form>
         )
     }
@@ -48,20 +34,14 @@ class UserForm extends React.Component {
 
 const mapStateToProps = (state) =>{
     return {
-        data: getFormEdit(state)
+        data: getData(state)
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addUser: (data) => {
-            dispatch(saveData(data))
-        },
         updateUser: (inputId, value) => {
             dispatch(updateUser(inputId, value))
-        },
-        setupForm: () => {
-            dispatch(setupForm());
         }
     }
 }

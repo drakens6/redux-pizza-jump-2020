@@ -1,25 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { saveData, updateBase } from '../actions'
-import { setupForm } from '../actions/thunks'
-import { getFormEdit } from '../selectors';
+import { updateBase } from '../actions'
+import { getData } from '../selectors';
 
 class PizzaBase extends React.Component {
-    //Gets form field data from main data state
-    componentDidMount() {
-        this.props.setupForm();
-    };
 
     //handles form field changes
     handleChange = (e) => {
         this.props.update(e.target.name, e.target.value);
-    }
-
-    //handles saving form state
-    handleSave = (e) => {
-        e.preventDefault();
-        const data = this.props.data;
-        this.props.save(data);
     }
     
     render() {
@@ -42,8 +30,6 @@ class PizzaBase extends React.Component {
                 <label>Thin Crust</label><br/>
                 <input type="radio" id="deep" name="dough" value="deep" checked={'deep' === dough} onChange={this.handleChange}/>
                 <label>Deep Dish</label><br/>
-                <input type='submit' value='Save' onClick={this.handleSave}/>
-
             </form>
         )
     }
@@ -51,20 +37,14 @@ class PizzaBase extends React.Component {
 
 const mapStateToProps = (state) =>{
     return {
-        data: getFormEdit(state)
+        data: getData(state)
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-       save: (data) => {
-            dispatch(saveData(data))
-        },
         update: (inputId, value) => {
             dispatch(updateBase(inputId, value))
-        },
-        setupForm: () => {
-            dispatch(setupForm());
         }
     }
 }
