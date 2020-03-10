@@ -8,40 +8,30 @@ import sagaInitializer from './effects/pizza.effects';
 import createSagaMiddleware from 'redux-saga'
 import { SET_SELECTED_PIZZA } from './types/action.types';
 
-import { configureStore, ConfigureStoreOptions } from '@reduxjs/toolkit'
-
+import { configureStore, ConfigureStoreOptions, getDefaultMiddleware } from '@reduxjs/toolkit'
 
 export default function configureAppStore(history, initialState?) {
-    const middleware: Middleware[] = [
-        routerMiddleware(history)
-    ];
 
     const rootReducer = combineReducers({
         ...reducerMap,
         router: connectRouter(history)
     });
 
-    // const enhancers = [];
-    // const windowIfDefined = typeof window === 'undefined' ? null : window
-
-    // const store = createStore(pizzaMakerReducer, composeWithDevTools())
-
-    // if (windowIfDefined && windowIfDefined.__REDUX_DEVTOOLS_EXTENSION__) {
-    //     enhancers.push(windowIfDefined.__REDUX_DEVTOOLS_EXTENSION__());
-    // }
-
     const sagaMiddleware = createSagaMiddleware()
 
-    const options: ConfigureStoreOptions = {
-        reducer: rootReducer,
-        middleware: [...middleware, sagaMiddleware],
-        devTools: true,
-        preloadedState: initialState
-    }
+    const middleware = [
+        sagaMiddleware,
+        routerMiddleware(history), 
+    ]
 
-    const store = configureStore(options)
-
+    const store = createStore(
+        rootReducer,
+        initialState,
+        compose(composeWithDevTools(applyMiddleware(...middleware)))
+    ) 
+    
     sagaMiddleware.run(sagaInitializer)
+
 
     return store
 

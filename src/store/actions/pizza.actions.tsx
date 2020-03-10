@@ -1,10 +1,10 @@
 import * as actions from '../types/action.types'
-
+import { createAction } from '@reduxjs/toolkit'
 export const mapStateToProps = state => {
     return {
-        customerInfo: state.pizzaReducer.customerInfo,
         pizzas: state.pizzaReducer.pizzas,
-        router: state.router
+        router: state.router,
+        selectedPizza: state.pizzaReducer.selectedPizza
     }
 }
 

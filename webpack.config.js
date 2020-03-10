@@ -14,7 +14,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     mode: 'development',
-    devtool: 'inline-source-map',
+    devtool: 'source-map',
     devServer: {
         contentBase: './dist',
         hot: true,
@@ -85,8 +85,8 @@ module.exports = {
             template: "./public/index.html",
             filename: './index.html'
         }),
-        new webpack.ProvidePlugin({
-            "React": 'react',
-        })
+        // new webpack.ProvidePlugin({
+        //     "React": 'react',
+        // })
     ]
 }

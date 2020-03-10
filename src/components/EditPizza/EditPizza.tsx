@@ -20,9 +20,20 @@ export default class EditPizza extends Component<InitialState, IPizzaProps> {
         const toppings = this.props.pizzas[id].Toppings
 
         if (!toppings.length) return
-        const result = Object.values(toppings).filter((topping: IPizzaToppings) => topping.isAdded === true)
+        const result = toppings.filter((topping: IPizzaToppings) => topping.isAdded === true)
 
         return result
+    }
+
+    // componentWillReceiveProps(prevProp) {
+    //     const path = this.props.router.location.pathname as string
+    //     const id = parseInt(path.split('/')[2])
+    //     this.props.setSelectedPizza(id)
+    // }
+
+    private getClassName(topping: IPizzaToppings): string {
+        const className = topping.isAdded ? "Body__Toppings-Visible" : "Body__Toppings-Hidden"
+        return className
     }
 
     render() {
@@ -35,7 +46,7 @@ export default class EditPizza extends Component<InitialState, IPizzaProps> {
             <div className="EditPizza__Enclosure">
                 <div className="EditPizza__Enclosure-Header">
                     <Button color="primary" tag={Link} to="/menu">Back</Button>
-                    <h3>{this.props.pizzas[id].Name}</h3>
+                    <h3>{this.props.selectedPizza.Name}</h3>
                     <Button color="primary" tag={Link} to="/menu">Save</Button>
                 </div>
                 <div className="EditPizza__Enclosure-Body">
@@ -44,7 +55,7 @@ export default class EditPizza extends Component<InitialState, IPizzaProps> {
                     </div>
                     <div className="Body__Toppings">
                         {
-                            Object.values(this.props.pizzas[id].Toppings).map((topping: IPizzaToppings, index: number) => (
+                            this.props.selectedPizza.Toppings.map((topping: IPizzaToppings, index: number) => (
                                 <Button 
                                     className="Body__Toppings-Button" 
                                     onClick={() => this.handleAddToppingOnCLick(index, id)}
@@ -54,9 +65,9 @@ export default class EditPizza extends Component<InitialState, IPizzaProps> {
                                         <div className={`Topping__Icon Body__Toppings-Icon--${topping.name.toLowerCase()}`}></div>
                                         {/* <img className="Body__Toppings-Icon" src={`/assets/${topping.name.toLowerCase()}.svg`} alt="Pizza Topping" /> */}
                                     </span>
-                                    <span className={topping.isAdded ? "Body__Toppings-Visible" : ""}>
+                                    <div className={this.getClassName(topping)}>
                                         <span className="Body__Toppings-Selected">&#10004;</span>
-                                    </span>
+                                    </div>
                                 </Button>
                             ))
                         }

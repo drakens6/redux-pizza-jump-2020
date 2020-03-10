@@ -1,20 +1,41 @@
 import { SET_PIZZA_RECIPES, SET_SELECTED_PIZZA, ADD_TOPPING } from "../types/action.types"
-import { InitialState } from "../../models/store.model"
-
+import { InitialState, IPizza } from "../../models/store.model"
+import { createReducer, createSlice } from '@reduxjs/toolkit'
 export const initialState: InitialState = {
     customerInfo: null,
     pizzas: [],
-    selectedPizza: null,
+    selectedPizza: {
+        id: "",
+        Name: "",
+        Price: 0,
+        Toppings: []
+    },
     router: null
 }
 
-export default function pizzaMakerReducer(state = initialState, action) {
+export function pizzaMakerReducer(state = initialState, action) {
     switch(action.type) {
 
         case SET_PIZZA_RECIPES: {
             return {
                 ...state,
                 pizzas: action.pizzas
+            }
+        }
+
+        case "@@router/LOCATION_CHANGE": {
+            const path = action.payload.location.pathname as string
+            const id = parseInt(path.split('/')[2])
+            
+            if (isNaN(id)) {
+                return {
+                    ...state
+                }
+            }
+
+            return {
+                ...state,
+                selectedPizza: state.pizzas[id]
             }
         }
 
@@ -26,19 +47,22 @@ export default function pizzaMakerReducer(state = initialState, action) {
         }
 
         case ADD_TOPPING: {
-            const toppings = state.pizzas[action.pizzaKey].Toppings[action.toppingKey]
-            const newToppings = state.pizzas[action.pizzaKey].Toppings.slice()
-            newToppings.splice(action.toppingKey, 0, { ...toppings, isAdded: !toppings.isAdded })
+            const selection = state.selectedPizza
 
-            // const result = {
-            //     ...state.pizzas,
-            //     [action.pizzaKey]: [
-            //         ...state.pizzas[action.pizzaKey].Toppings,
-                    
-            //     ]
-            // }
+            const isAdded = !selection.Toppings[action.toppingKey].isAdded
+            const topping = { ...selection.Toppings[action.toppingKey], isAdded: isAdded }
 
-            return state
+            selection.Toppings.splice(action.toppingKey, 1, topping)
+
+            const result = {
+                ...state,
+                selectedPizza: {
+                    ...selection,
+                    ...selection.Toppings
+                }
+            }
+
+            return result
 
         }
 
