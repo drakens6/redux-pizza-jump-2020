@@ -1,26 +1,23 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { addUser, addLocation } from '../actions';
+import { addUser } from '../actions';
 
 const UserForm = (props) => {
   const [user, setUser] = useState('');
-  const [location, setLocation] = useState('');
-
-  const onUserChange = (e) => {
-    setUser(e.target.value);
-  }
-
-  const onLocationChange = (e) => {
-    setLocation(e.target.value);
-  }
+  const [street, setStreet] = useState('');
+  const [email, setEmail] = useState('');
+  const [city, setCity] = useState('');
+  const [phone, setPhone] = useState('');
 
   const onFormSubmit = (e) => {
     e.preventDefault();
     props.submitUser(user);
-    props.submitLocation(location);
     setUser('');
-    setLocation('');
+    setStreet('');
+    setEmail('');
+    setCity('');
+    setPhone('');
     return;
   }
 
@@ -28,11 +25,24 @@ const UserForm = (props) => {
     <Form onSubmit={(e) => onFormSubmit(e)}>
       <Form.Field>
         <label>Name</label>
-        <input placeholder="Name" value={user} onChange={(e) => onUserChange(e)}/>
+        <input placeholder="Name" type="text" value={user} onChange={(e) => setUser(e.target.value)} required/>
       </Form.Field>
       <Form.Field>
-        <label>Location to deliver to</label>
-        <input placeholder="Location" value={location} onChange={(e) => onLocationChange(e)}/>
+        <label>Email</label>
+        <input placeholder="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+      </Form.Field>
+      <Form.Field>
+        <label>Phone</label>
+        <input placeholder="Phone" type="text" value={phone} onChange={(e) => setPhone(e.target.value)} required/>
+      </Form.Field>
+      <h4>Location to Deliver to</h4>
+      <Form.Field>
+        <label>Street</label>
+        <input placeholder="street" value={street} onChange={(e) => setStreet(e.target.value)} required/>
+      </Form.Field>
+      <Form.Field>
+        <label>City</label>
+        <input placeholder="Location" value={city} onChange={(e) => setCity(e.target.value)} required/>
       </Form.Field>
       <Button type="submit">Submit</Button>
     </Form>
@@ -41,13 +51,11 @@ const UserForm = (props) => {
 
 const mapStateToProps = (state) => ({
   user: state.user,
-  location: state.location
 })
 
 const mapDispatchToProps = (dispatch) => {
   return {
     submitUser: (user) => dispatch(addUser(user)),
-    submitLocation: (location) => dispatch(addLocation(location))
   }
 }
 
