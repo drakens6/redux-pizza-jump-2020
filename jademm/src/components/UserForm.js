@@ -25,6 +25,7 @@ class UserForm extends React.Component {
         const {name, email, address, city, state, zip, phone} = this.props.data.user;
         return(
             <form>
+                <h3>Customer Information</h3>
                 <label>Name </label>
                 <input type='text' id='name' value={name} onChange={this.handleChange}/><br/>
                 <label>Email Address </label>

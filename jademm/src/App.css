@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-li {
+.navli {
   display: inline-block;
   padding: 10px;
 }

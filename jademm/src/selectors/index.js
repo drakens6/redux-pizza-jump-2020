@@ -1,4 +1,4 @@
-export function getUserData(state) {
+export function getData(state) {
     return state.data;
   }
   
@@ -6,6 +6,3 @@ export function getUserData(state) {
     return state.edit.data;
   }
   
-  export function getHasChanged(state) {
-    return state.edit.changed;
-  }

@@ -5,14 +5,17 @@ import { setupForm } from '../actions/thunks'
 import { getFormEdit } from '../selectors';
 
 class PizzaBase extends React.Component {
+    //Gets form field data from main data state
     componentDidMount() {
         this.props.setupForm();
     };
 
+    //handles form field changes
     handleChange = (e) => {
         this.props.update(e.target.name, e.target.value);
     }
 
+    //handles saving form state
     handleSave = (e) => {
         e.preventDefault();
         const data = this.props.data;
@@ -23,6 +26,7 @@ class PizzaBase extends React.Component {
         const {sauce, dough} = this.props.data.pizza;
         return (
             <form>
+                <h3>Pizza Base</h3>
                 <label>How much sauce? </label><br/>
                 <input type="radio" id="little" name="sauce" value="little" checked={'little' === sauce} onChange={this.handleChange}/>
                 <label>A little sauce</label><br/>

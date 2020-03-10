@@ -23,6 +23,7 @@ class PizzaBase extends React.Component {
         const {toppings} = this.props.data.pizza;
         return (
             <form>
+                <h3>Pizza Toppings</h3>
                 <label>What Toppings? </label><br/>
                 <input type="checkbox" id='pepperoni' name='topping' value='pepperoni' checked={toppings.includes('pepperoni')} onChange={this.handleChange}/>
                 <label> Pepperoni</label><br/>

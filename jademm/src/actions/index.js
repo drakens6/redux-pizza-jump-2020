@@ -5,9 +5,8 @@ export const UPDATE_USER = 'UPDATE_USER';
 export const UPDATE_BASE = 'UPDATE_BASE';
 export const UPDATE_TOPPINGS = 'UPDATE_TOPPINGS';
 export const SET_UP_FORM = 'SET_UP_FORM';
-export const EDIT_FORM_PENDING = 'EDIT_FORM_PENDING';
-export const EDIT_FORM_SUCCESS = 'EDIT_FORM_SUCCESS';
 
+//Save current data in form
 export function saveData(data) {
     return {
         type: SAVE_DATA, 
@@ -15,6 +14,7 @@ export function saveData(data) {
     }
 }
 
+//Update the user data in form as it is being entered
 export function updateUser(inputId, value) {
     return {
         type: UPDATE_USER,
@@ -23,6 +23,7 @@ export function updateUser(inputId, value) {
     }
 }
 
+//update pizza base form content on change
 export function updateBase(inputId, value) {
     return {
         type: UPDATE_BASE,
@@ -31,6 +32,7 @@ export function updateBase(inputId, value) {
     }
 }
 
+//update toppings array on change
 export function updateToppings(inputId, value) {
     return {
         type: UPDATE_TOPPINGS,
@@ -39,6 +41,7 @@ export function updateToppings(inputId, value) {
     }
 }
 
+//get form state on page load
 export function setUpForm(values) {
     return {
         type: SET_UP_FORM,
@@ -46,15 +49,3 @@ export function setUpForm(values) {
     }
 }
 
-export function editFormPending() {
-    return {
-        type: EDIT_FORM_PENDING
-    }
-}
-
-export function editFormSuccess(values) {
-    return {
-        type: EDIT_FORM_SUCCESS,
-        values
-    }
-}

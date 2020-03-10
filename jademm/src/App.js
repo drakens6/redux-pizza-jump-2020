@@ -8,6 +8,8 @@ import './App.css'
 import Home from './components/Home';
 import PizzaBase from './components/PizzaBase';
 import PizzaToppings from './components/PizzaToppings';
+import ReviewOrder from './components/ReviewOrder';
+import UserForm from './components/UserForm';
 
 export default class App extends React.Component {
 
@@ -17,20 +19,32 @@ export default class App extends React.Component {
           <div>
             <nav>
               <ul>
-                <li>
+                <li className='navli'>
                   <button><Link to="/">Home</Link></button>
                 </li>
-                <li>
+                <li className='navli'>
                   <button><Link to="/base">Pizza Base</Link></button>
                 </li>
-                <li>
+                <li className='navli'>
                   <button><Link to="/toppings">Pizza Toppings</Link></button>
+                </li>
+                <li className='navli'>
+                  <button><Link to="/customer">Customer Info</Link></button>
+                </li>
+                <li className='navli'>
+                  <button><Link to="/review">Review Order</Link></button>
                 </li>
               </ul>
             </nav>
 
             <Switch>
-            <Route path="/toppings">
+              <Route path="/customer">
+                <UserForm />
+              </Route>
+              <Route path="/review">
+                <ReviewOrder />
+              </Route>
+              <Route path="/toppings">
                 <PizzaToppings />
               </Route>
               <Route path="/base">

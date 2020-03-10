@@ -1,4 +1,4 @@
-import { SAVE_DATA, UPDATE_USER, UPDATE_BASE, UPDATE_TOPPINGS, SET_UP_FORM, EDIT_FORM_PENDING, EDIT_FORM_SUCCESS } from '../actions';
+import { SAVE_DATA, UPDATE_USER, UPDATE_BASE, UPDATE_TOPPINGS, SET_UP_FORM } from '../actions';
 import {combineReducers} from 'redux';
 
 const initialState = {
@@ -18,8 +18,8 @@ const initialState = {
             toppings: []
         },
     },
+    //place holder for transitional data
     edit: {
-        status: null,
         data: {
             user: {
                 name: '',
@@ -35,12 +35,11 @@ const initialState = {
                 dough: 'classic',
                 toppings: []
             },
-        },
-        changed: null
+        }
     }
 }
 
-
+//Redundant function that saves the current state in form to data
 function saveReducer(state = initialState.data, action) {
     switch(action.type) {
         case SAVE_DATA:
@@ -53,26 +52,25 @@ function saveReducer(state = initialState.data, action) {
 
 function editReducer(state = initialState.edit, action) {
     switch(action.type) {
+        //Updates the user data to edit.data
         case UPDATE_USER:
             const newForm = {...state.data}
             newForm.user[action.inputId] = action.value;
 
             return {
-                    ...state,
-                    data: newForm,
-                    changed: true
+                    data: newForm
             }
 
+        //updates the pizza base data
         case UPDATE_BASE:
             const newBase = {...state.data}
             newBase.pizza[action.inputId] = action.value;
 
             return {
-                ...state,
-                data: newBase,
-                changed: true
+                data: newBase
             }
 
+        //updates the toppings array, removing item if already in array
         case UPDATE_TOPPINGS:
             let newTop = {...state.data}
            
@@ -85,29 +83,15 @@ function editReducer(state = initialState.edit, action) {
             }
 
             return {
-                ...state,
-                data: newTop,
-                changed: true
+                data: newTop
             }
 
+        //sets edit.data to data
         case SET_UP_FORM:
             return {
-                ...state,
-                data: action.values,
-                changed: false
+                data: action.values
             }
-        
-        case EDIT_FORM_PENDING:
-            return {
-                ...state,
-                status: EDIT_FORM_PENDING
-            }
-        case EDIT_FORM_SUCCESS:
-            return {
-                status: EDIT_FORM_SUCCESS,
-                data: action.values,
-                changed: false
-            }
+
         default:
             return state
     }

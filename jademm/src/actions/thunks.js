@@ -1,19 +1,11 @@
-import {getFormEdit, getUserData} from '../selectors';
-import { editFormSuccess, editFormPending, setUpForm} from './index';
+import { getData } from '../selectors';
+import { setUpForm} from './index';
 
 
+//Gets the data from the main data holder to get for the form fields
 export function setupForm() {
   return function _resetForm(dispatch, getState) {
-    const form = getUserData(getState());
+    const form = getData(getState());
     dispatch(setUpForm(form));
-  }
-}
-
-
-export function saveForm() {
-  return function _saveForm(dispatch, getState) {
-    dispatch(editFormPending());
-    const form = getFormEdit(getState());
-    dispatch(editFormSuccess(form));
   }
 }
