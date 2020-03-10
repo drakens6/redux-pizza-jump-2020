@@ -5,6 +5,7 @@ import { Container } from 'semantic-ui-react';
 import PizzaForm from './PizzaForm';
 import Toppings from './Toppings';
 import UserForm from './UserForm';
+import Receipt from './Receipt';
 
 const App = (props) => {
 
@@ -14,6 +15,8 @@ const App = (props) => {
                 return <Toppings />
             case "user":
                 return <UserForm />
+            case "receipt":
+                return <Receipt />
             default:
                 return <PizzaForm />
         }
