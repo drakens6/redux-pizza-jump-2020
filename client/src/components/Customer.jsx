@@ -112,11 +112,9 @@ const Customer = ({ customerRed, setCustomer, nextMenu }) => {
             onChange={e => handleInputChange(e)}
           />
         </Form.Group>
-        <div className="ml-auto">
-          <Button variant="success" type="submit" disabled={!isValid}>
-            Review Order
-          </Button>
-        </div>
+        <Button variant="success" type="submit" disabled={!isValid}>
+          Review Order
+        </Button>
       </Form>
     </Fragment>
   );

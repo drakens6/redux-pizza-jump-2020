@@ -8,8 +8,7 @@ export const RESET_MENU = 'RESET_MENU';
 export const SET_SAUCE_LEVEL = 'SET_SAUCE_LEVEL';
 export const SET_CRUST_SIZE = 'SET_CRUST_SIZE';
 
-export const ADD_TOPPING = 'ADD_TOPPING';
-export const REMOVE_TOPPING = 'REMOVE_TOPPING';
+export const SET_TOPPINGS = 'SET_TOPPINGS';
 export const CLEAR_TOPPINGS = 'CLEAR_TOPPINGS';
 
 export const RESET_PIZZA = 'RESET_PIZZA';

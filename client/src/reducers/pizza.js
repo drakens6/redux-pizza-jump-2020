@@ -1,8 +1,7 @@
 import {
   SET_CRUST_SIZE,
   SET_SAUCE_LEVEL,
-  ADD_TOPPING,
-  REMOVE_TOPPING,
+  SET_TOPPINGS,
   CLEAR_TOPPINGS,
   RESET_PIZZA,
 } from '../actions/types';
@@ -25,15 +24,10 @@ export const pizza = (state = initialState, action) => {
         ...state,
         crustSize: action.payload,
       };
-    case ADD_TOPPING:
+    case SET_TOPPINGS:
       return {
         ...state,
-        toppings: [...state.toppings, action.payload],
-      };
-    case REMOVE_TOPPING:
-      return {
-        ...state,
-        toppings: state.toppings.filter(topping => topping !== action.payload),
+        toppings: action.payload,
       };
     case CLEAR_TOPPINGS:
       return Object.assign({}, state, { toppings: [] });

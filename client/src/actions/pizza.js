@@ -1,8 +1,7 @@
 import {
   SET_SAUCE_LEVEL,
   SET_CRUST_SIZE,
-  ADD_TOPPING,
-  REMOVE_TOPPING,
+  SET_TOPPINGS,
   CLEAR_TOPPINGS,
   RESET_PIZZA,
 } from './types';
@@ -21,20 +20,10 @@ export const setCrustSize = crustSize => {
   };
 };
 
-export const addTopping = ({ name, id }) => {
+export const setToppings = toppings => {
   return {
-    type: ADD_TOPPING,
-    payload: {
-      name: name.trim(),
-      id: id,
-    },
-  };
-};
-
-export const removeTopping = id => {
-  return {
-    type: REMOVE_TOPPING,
-    payload: id,
+    type: SET_TOPPINGS,
+    payload: toppings,
   };
 };
 

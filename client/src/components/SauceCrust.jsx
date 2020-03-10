@@ -7,6 +7,8 @@ import { Form, Button } from 'react-bootstrap';
 import { setSauceLevel, setCrustSize } from '../actions/pizza';
 import { nextMenu } from '../actions/menu';
 
+import { CRUST_SIZES, SAUCE_LEVELS } from '../config/constants';
+
 const SauceCrust = ({ pizzaRed, setSauceLevel, setCrustSize, nextMenu }) => {
   useEffect(() => {}, []);
 
@@ -36,10 +38,13 @@ const SauceCrust = ({ pizzaRed, setSauceLevel, setCrustSize, nextMenu }) => {
             defaultValue={pizzaRed.crustSize.toString()}
             onChange={e => handleCrustSizeSelect(e)}
           >
-            <option value="8">8 inch - Mini</option>
-            <option value="10">10 inch - Small</option>
-            <option value="12">12 inch - Medium</option>
-            <option value="14">14 inch - Large</option>
+            {CRUST_SIZES.map(crust => {
+              return (
+                <option key={crust.value} value={crust.value.toString()}>
+                  {crust.label}
+                </option>
+              );
+            })}
           </Form.Control>
         </Form.Group>
         <Form.Group controlId="sauceCrust.sauceLevel">
@@ -49,18 +54,18 @@ const SauceCrust = ({ pizzaRed, setSauceLevel, setCrustSize, nextMenu }) => {
             defaultValue={pizzaRed.sauceLevel.toString()}
             onChange={e => handleSauceLevelSelect(e)}
           >
-            <option value="0">Sauceless Border</option>
-            <option value="1">Regular Portion</option>
-            <option value="2">Light Portion</option>
-            <option value="3">Extra Portion</option>
+            {SAUCE_LEVELS.map(sauce => {
+              return (
+                <option key={sauce.value} value={sauce.value.toString()}>
+                  {sauce.label}
+                </option>
+              );
+            })}
           </Form.Control>
         </Form.Group>
-
-        <div className="ml-auto">
-          <Button variant="success" type="submit">
-            Next
-          </Button>
-        </div>
+        <Button variant="success" type="submit">
+          Next
+        </Button>
       </Form>
     </Fragment>
   );
