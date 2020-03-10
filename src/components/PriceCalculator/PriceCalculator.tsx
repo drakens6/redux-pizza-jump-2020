@@ -38,7 +38,7 @@ export default class PriceCalculator extends Component<Props> {
             <div className="Calculator__Enclosure">
                 {
                     toppings.map((topping: IPizzaToppings, index: number) => (
-                        <div className="Calculator__Enclosure-Value">
+                        <div key={index} className="Calculator__Enclosure-Value">
                             <span>{topping.name}</span>
                             <span>{`$${topping.price.toFixed(2)}`}</span>
                         </div>

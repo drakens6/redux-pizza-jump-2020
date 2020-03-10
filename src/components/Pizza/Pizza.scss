@@ -16,6 +16,17 @@
         margin: auto;
     }
 
+    &__Sauce {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        width: 300px;
+        height: 200px;
+        background-image: url("../../assets/toppings/sauce.svg");
+        background-repeat: no-repeat;
+        z-index: 2;
+    }
+
     &__Base {
         background-image: url("../../assets/toppings/base.svg");
         width: 300px;

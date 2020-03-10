@@ -48,7 +48,7 @@ export default class EditPizza extends Component<InitialState, IPizzaProps> {
                 <div className="EditPizza__Enclosure-Header">
                     <Button color="primary" tag={Link} to="/menu">Back</Button>
                     <h3>{this.props.selectedPizza.Name}</h3>
-                    <Button color="primary" tag={Link} to="/menu">Save</Button>
+                    <Button color="primary" tag={Link} to="/cart">Add to cart</Button>
                 </div>
                 <div className="EditPizza__Enclosure-Body">
                     <div className="Body__Pizza">

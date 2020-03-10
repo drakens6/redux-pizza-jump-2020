@@ -27,6 +27,7 @@ export default class Pizza extends Component<Props> {
                             )
                         })
                     }
+                    <div className="Pizza__Sauce"></div>
                     <div className="Pizza__Base"></div>
                 </div>
             </div>
@@ -34,6 +35,6 @@ export default class Pizza extends Component<Props> {
     }
 
     private setZIndex(index: number): { zIndex: number } {
-        return { zIndex: index + 2 }
+        return { zIndex: index + 3 }
     }
 }

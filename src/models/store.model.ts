@@ -16,6 +16,7 @@ export interface IPizza {
     Name: string
     Price: number
     Toppings: IPizzaToppings[]
+    Total?: number
     CreatedOn?: string
     EditedOn?: string
 
@@ -24,6 +25,7 @@ export interface IPizza {
 export interface InitialState extends IPizzaProps {
     customerInfo: any
     pizzas: IPizza[]
+    cart: IPizza[]
     selectedPizza: IPizza
     router: any
 }

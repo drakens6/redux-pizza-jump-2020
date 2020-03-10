@@ -1,0 +1,21 @@
+.Cart {
+    &__Container {
+
+        &-Header {
+            border-bottom: 1px solid black;
+        }
+
+        width: 100%;
+
+        &-Item {
+            list-style-type: none;
+        }
+
+    }
+}
+
+.Cart__Item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

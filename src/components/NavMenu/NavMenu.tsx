@@ -26,6 +26,9 @@ export default class NavMenu extends React.PureComponent {
                                 <NavItem>
                                     <NavLink tag={Link} className="text-light" to="/account">Account</NavLink>
                                 </NavItem>
+                                <NavItem>
+                                    <NavLink tag={Link} className="text-light" to="/cart">Cart</NavLink>
+                                </NavItem>
                             </ul>
                         </Collapse>
                     </Container>

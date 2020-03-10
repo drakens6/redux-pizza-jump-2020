@@ -1,4 +1,4 @@
-import { SET_PIZZA_RECIPES, SET_SELECTED_PIZZA, ADD_TOPPING } from "../types/action.types"
+import { SET_PIZZA_RECIPES, SET_SELECTED_PIZZA, ADD_TOPPING, ADD_PIZZA_TO_CART } from "../types/action.types"
 import { InitialState, IPizza } from "../../models/store.model"
 import { createReducer, createSlice } from '@reduxjs/toolkit'
 export const initialState: InitialState = {
@@ -10,6 +10,7 @@ export const initialState: InitialState = {
         Price: 0,
         Toppings: []
     },
+    cart: [],
     router: null
 }
 
@@ -26,6 +27,34 @@ export function pizzaMakerReducer(state = initialState, action) {
         case "@@router/LOCATION_CHANGE": {
             const path = action.payload.location.pathname as string
             const id = parseInt(path.split('/')[2])
+
+            if (path === "/cart") {
+
+                let total = 7
+
+                const toppings = state.selectedPizza.Toppings.filter(topping => topping.isAdded === true)
+
+                for (let i = 0; i < toppings.length; i++) {
+                    total += toppings[i].price
+                }
+
+                const result = {
+                    ...state,
+                    cart: [
+                        ...state.cart,
+                        {
+                            ...state.selectedPizza,
+                            Toppings: [
+                                ...state.selectedPizza.Toppings,
+                            ],
+                            Total: total
+                        }
+                    ]
+                }
+
+                return result
+
+            }
             
             if (isNaN(id)) {
                 return {
@@ -64,6 +93,10 @@ export function pizzaMakerReducer(state = initialState, action) {
 
             return result
 
+        }
+
+        case ADD_PIZZA_TO_CART: {
+            return state
         }
 
         default: {

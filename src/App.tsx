@@ -11,6 +11,7 @@ import Home from './components/Home/Home';
 import { mapStateToProps, mapDispatchToProps } from './store/actions/pizza.actions';
 import { connect } from 'react-redux';
 import { InitialState } from './models/store.model';
+import Cart from './components/Cart/Cart';
 
 class App extends React.Component<InitialState, {}> {
   
@@ -26,6 +27,7 @@ class App extends React.Component<InitialState, {}> {
           <Route exact path='/account' component={Account} />
           <Route exact path='/edit/:id' component={EditPizza} />
           <Route exact path='/orders' component={Orders} />
+          <Route exact path='/cart' component={Cart} />
           <Redirect exact from="/" to="/menu" />
         </Layout>
       </div>
