@@ -138,7 +138,6 @@ const styles = () => ({
   },
   footerText: {
     color: "#fff",
-    fontSize: "20px",
     lineHeight: 1.5
   },
   invertedBtnDark: {

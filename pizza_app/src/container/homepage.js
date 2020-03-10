@@ -90,7 +90,13 @@ export default class homepage extends Component {
     return (
       <div>
         <Stepper
-          style={{ width: "70%", margin: "auto", marginBottom: "100px" }}
+          style={{
+            width: "70%",
+            margin: "auto",
+            padding: "0px",
+            marginBottom: "100px",
+            marginTop: "50px"
+          }}
           activeStep={this.state.step}
           alternativeLabel
         >

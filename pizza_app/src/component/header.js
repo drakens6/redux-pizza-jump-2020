@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 const header = () => {
   return (
     <div>
-      <AppBar position="static">
+      <AppBar position="static" >
         <Toolbar>
           <Typography variant="title" color="inherit">
             Bad Seal Studios - Pizza application

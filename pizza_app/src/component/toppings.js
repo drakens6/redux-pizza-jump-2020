@@ -89,9 +89,6 @@ class toppings extends Component {
 
     return (
       <div>
-        <h3>
-          Enter the amount of addtional toppings: (light, normal, extra, double)
-        </h3>
         <form onSubmit={this.handleSubmit}>
           <FormLabel style={{ fontWeight: "bold" }}>
             Pepperoni:
