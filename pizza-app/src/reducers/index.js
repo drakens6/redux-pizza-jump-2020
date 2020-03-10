@@ -1,8 +1,9 @@
-import { ADD_USER, CREATE_PIZZA } from '../constants/action-types';
+import { ADD_USER, CREATE_PIZZA, UPDATE_VIEW } from '../constants/action-types';
 
 const initialState = {
     user: {},
-    pizza: {}
+    pizza: {},
+    view: ''
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -11,6 +12,8 @@ const rootReducer = (state = initialState, action) => {
             return {...state, user: action.payload };
         case CREATE_PIZZA:
             return {...state, pizza: action.payload };
+        case UPDATE_VIEW:
+            return {...state, view: action.payload};
         default:
             return state;
     }

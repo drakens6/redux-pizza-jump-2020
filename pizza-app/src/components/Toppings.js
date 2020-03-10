@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Checkbox, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { createPizza } from '../actions';
+import { createPizza, updateView } from '../actions';
 
 const meat = [
   { label: "pepperoni", value: "pepperoni" },
@@ -44,6 +44,7 @@ const Toppings = (props) => {
     const newPizza = {...props.pizza, selections};
     console.log(newPizza);
     props.modifyPizza(newPizza);
+    props.updateView("user");
   }
 
   return (
@@ -81,7 +82,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    modifyPizza: (pizza) => dispatch(createPizza(pizza))
+    modifyPizza: (pizza) => dispatch(createPizza(pizza)),
+    updateView: (view) => dispatch(updateView(view))
   }
 }
 

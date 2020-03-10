@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Container, Form, Rating, Select, Button } from 'semantic-ui-react';
-import { createPizza } from '../actions';
+import { createPizza, updateView } from '../actions';
 
 const crustOptions = [
   { key: "hand-tossed", text: "Hand-tossed", value: "hand-tossed" },
@@ -29,6 +29,7 @@ const PizzaForm = (props) => {
   const onPizzaCreate = () => {
     const pizza = { size, crust: type, sauce: level };
     props.createPizza(pizza);
+    return props.updateView("toppings");
   } 
 
   return (
@@ -50,6 +51,7 @@ const PizzaForm = (props) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     createPizza: (pizza) => dispatch(createPizza(pizza)),
+    updateView: (view) => dispatch(updateView(view))
   }
 } 
 
