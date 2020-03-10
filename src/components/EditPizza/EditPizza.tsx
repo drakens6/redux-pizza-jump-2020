@@ -6,6 +6,7 @@ import './EditPizza.scss'
 import { connect } from 'react-redux'
 import { mapStateToProps, mapDispatchToProps } from '../../store/actions/pizza.actions'
 import { InitialState, IPizzaProps, IPizzaToppings } from '../../models/store.model'
+import PriceCalculator from '../PriceCalculator/PriceCalculator'
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class EditPizza extends Component<InitialState, IPizzaProps> {
@@ -72,6 +73,9 @@ export default class EditPizza extends Component<InitialState, IPizzaProps> {
                             ))
                         }
                     </div>
+                </div>
+                <div className="EditPizza__Enclosure-Calculator">
+                    <PriceCalculator target={this.props.selectedPizza}></PriceCalculator>
                 </div>
             </div>
         )

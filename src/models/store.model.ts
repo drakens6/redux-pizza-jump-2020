@@ -16,6 +16,8 @@ export interface IPizza {
     Name: string
     Price: number
     Toppings: IPizzaToppings[]
+    CreatedOn?: string
+    EditedOn?: string
 
 }
 

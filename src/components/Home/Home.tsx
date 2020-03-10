@@ -30,7 +30,7 @@ export default class Home extends Component<InitialState, IPizzaProps> {
                                 <Pizza toppings={this.getToppings(pizza.Toppings)}></Pizza>
                             </div>
                             <div className="Item__Title">
-                                {pizza.Name}
+                                { pizza.Name } - ${ pizza.Price }
                             </div>
                             <div className="Item__Action">
                                 <Button onClick={() => this.handleSetSelectedPizza(index)} tag={Link} to={`/edit/${index}`} color="info">View pizza</Button>

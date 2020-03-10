@@ -63,7 +63,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "1e096d138d00f9f07aa5";
+/******/ 	var hotCurrentHash = "083c658636c9c79daeb6";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -5322,7 +5322,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_9___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_
 var ___CSS_LOADER_URL_REPLACEMENT_10___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_10___);
 var ___CSS_LOADER_URL_REPLACEMENT_11___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_11___);
 // Module
-exports.push([module.i, ".EditPizza__Enclosure {\n  display: flex;\n  flex-direction: column; }\n  .EditPizza__Enclosure-Header {\n    padding: 10px 0;\n    border-bottom: 1px solid black;\n    display: flex;\n    justify-content: space-between;\n    align-items: center; }\n  .EditPizza__Enclosure-Body {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: 350px;\n    margin-top: 10px; }\n\n.Body__Pizza {\n  padding: 10px 0;\n  position: relative; }\n\n.Body__Toppings {\n  display: grid;\n  position: relative;\n  width: 35vh;\n  max-height: 300px;\n  gap: 15px;\n  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }\n  .Body__Toppings-Visible {\n    display: inline-block; }\n  .Body__Toppings-Hidden {\n    display: none; }\n  .Body__Toppings-Selected {\n    position: absolute;\n    top: -10px;\n    right: -10px;\n    width: 20px;\n    height: 20px;\n    border-radius: 50%;\n    background-color: green; }\n  .Body__Toppings-Button {\n    position: relative; }\n  .Body__Toppings-Content {\n    display: flex;\n    justify-content: space-between; }\n  .Body__Toppings .Topping__Icon {\n    background-repeat: no-repeat;\n    width: 40px; }\n  .Body__Toppings-Icon--anchovy {\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + "); }\n  .Body__Toppings-Icon--bacon {\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + "); }\n  .Body__Toppings-Icon--basil {\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + "); }\n  .Body__Toppings-Icon--chili {\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + "); }\n  .Body__Toppings-Icon--mozzarella {\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + "); }\n  .Body__Toppings-Icon--mushroom {\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + "); }\n  .Body__Toppings-Icon--olive {\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_6___ + "); }\n  .Body__Toppings-Icon--onion {\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_7___ + "); }\n  .Body__Toppings-Icon--pepper {\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_8___ + "); }\n  .Body__Toppings-Icon--pepperoni {\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_9___ + "); }\n  .Body__Toppings-Icon--sweetcorn {\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_10___ + "); }\n  .Body__Toppings-Icon--tomato {\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_11___ + "); }\n", ""]);
+exports.push([module.i, ".EditPizza__Enclosure {\n  display: flex;\n  flex-direction: column; }\n  .EditPizza__Enclosure-Header {\n    padding: 10px 0;\n    border-bottom: 1px solid black;\n    display: flex;\n    justify-content: space-between;\n    align-items: center; }\n  .EditPizza__Enclosure-Body {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: 350px;\n    margin-top: 10px; }\n\n.Body__Pizza {\n  padding: 10px 0;\n  position: relative; }\n\n.Body__Toppings {\n  display: grid;\n  position: relative;\n  width: 35vh;\n  max-height: 300px;\n  gap: 15px;\n  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }\n  .Body__Toppings-Visible {\n    display: inline-block; }\n  .Body__Toppings-Hidden {\n    display: none; }\n  .Body__Toppings-Selected {\n    position: absolute;\n    top: -10px;\n    right: -10px;\n    width: 20px;\n    height: 20px;\n    border-radius: 50%;\n    background-color: green; }\n  .Body__Toppings-Button {\n    position: relative;\n    height: 50px; }\n  .Body__Toppings-Content {\n    display: flex;\n    justify-content: space-between; }\n  .Body__Toppings .Topping__Icon {\n    background-repeat: no-repeat;\n    width: 40px; }\n  .Body__Toppings-Icon--anchovy {\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + "); }\n  .Body__Toppings-Icon--bacon {\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + "); }\n  .Body__Toppings-Icon--basil {\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + "); }\n  .Body__Toppings-Icon--chili {\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + "); }\n  .Body__Toppings-Icon--mozzarella {\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + "); }\n  .Body__Toppings-Icon--mushroom {\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + "); }\n  .Body__Toppings-Icon--olive {\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_6___ + "); }\n  .Body__Toppings-Icon--onion {\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_7___ + "); }\n  .Body__Toppings-Icon--pepper {\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_8___ + "); }\n  .Body__Toppings-Icon--pepperoni {\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_9___ + "); }\n  .Body__Toppings-Icon--sweetcorn {\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_10___ + "); }\n  .Body__Toppings-Icon--tomato {\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_11___ + "); }\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -5442,6 +5442,24 @@ var ___CSS_LOADER_URL_REPLACEMENT_12___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS
 var ___CSS_LOADER_URL_REPLACEMENT_13___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_13___);
 // Module
 exports.push([module.i, ".Pizza {\n  max-width: 350px; }\n  .Pizza__Board {\n    position: relative;\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n    width: 400px;\n    height: 275px;\n    background-repeat: no-repeat;\n    margin: auto; }\n  .Pizza__Base {\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n    width: 300px;\n    height: 200px;\n    position: absolute;\n    top: 0;\n    right: 25px;\n    background-repeat: no-repeat;\n    z-index: 1; }\n  .Pizza__Topping {\n    position: absolute;\n    background-repeat: no-repeat;\n    background-size: contain;\n    z-index: 2; }\n    .Pizza__Topping--anchovy {\n      background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\n      width: 51px;\n      height: 37px; }\n      .Pizza__Topping--anchovy:nth-child(1) {\n        left: 280px;\n        top: 26px; }\n      .Pizza__Topping--anchovy:nth-child(2) {\n        left: 144px;\n        top: 74px; }\n      .Pizza__Topping--anchovy:nth-child(3) {\n        left: 263px;\n        top: 95px; }\n      .Pizza__Topping--anchovy:nth-child(4), .Pizza__Topping--anchovy:nth-child(5) {\n        display: none; }\n    .Pizza__Topping--bacon {\n      background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\n      width: 56px;\n      height: 31px; }\n      .Pizza__Topping--bacon:nth-child(1) {\n        left: 124px;\n        top: 50px; }\n      .Pizza__Topping--bacon:nth-child(2) {\n        left: 314px;\n        top: 81px; }\n      .Pizza__Topping--bacon:nth-child(3) {\n        left: 132px;\n        top: 86px; }\n      .Pizza__Topping--bacon:nth-child(4) {\n        left: 199px;\n        top: 59px; }\n      .Pizza__Topping--bacon:nth-child(5) {\n        left: 205px;\n        top: 5px; }\n    .Pizza__Topping--basil {\n      background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\n      width: 46px;\n      height: 32px; }\n      .Pizza__Topping--basil:nth-child(1) {\n        left: 247px;\n        top: 14px; }\n      .Pizza__Topping--basil:nth-child(2) {\n        left: 126px;\n        top: 127px; }\n      .Pizza__Topping--basil:nth-child(3) {\n        left: 242px;\n        top: 120px; }\n      .Pizza__Topping--basil:nth-child(4), .Pizza__Topping--basil:nth-child(5) {\n        display: none; }\n    .Pizza__Topping--chili {\n      background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\n      width: 63px;\n      height: 35px; }\n      .Pizza__Topping--chili:nth-child(1) {\n        left: 150px;\n        top: 40px; }\n      .Pizza__Topping--chili:nth-child(2) {\n        left: 68px;\n        top: 77px; }\n      .Pizza__Topping--chili:nth-child(3) {\n        left: 52px;\n        top: 144px; }\n      .Pizza__Topping--chili:nth-child(4) {\n        left: 210px;\n        top: 17px; }\n      .Pizza__Topping--chili:nth-child(5) {\n        left: 240px;\n        top: 120px; }\n    .Pizza__Topping--mozzarella {\n      background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_6___ + ");\n      width: 46px;\n      height: 32px; }\n      .Pizza__Topping--mozzarella:nth-child(1) {\n        left: 184px;\n        top: 83px; }\n      .Pizza__Topping--mozzarella:nth-child(2) {\n        left: 186px;\n        top: 114px; }\n      .Pizza__Topping--mozzarella:nth-child(3) {\n        left: 162px;\n        top: 8px; }\n      .Pizza__Topping--mozzarella:nth-child(4), .Pizza__Topping--mozzarella:nth-child(5) {\n        display: none; }\n    .Pizza__Topping--mushroom {\n      background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_7___ + ");\n      width: 45px;\n      height: 26px; }\n      .Pizza__Topping--mushroom:nth-child(1) {\n        left: 120px;\n        top: 20px; }\n      .Pizza__Topping--mushroom:nth-child(2) {\n        left: 250px;\n        top: 91px; }\n      .Pizza__Topping--mushroom:nth-child(3) {\n        left: 90px;\n        top: 120px; }\n      .Pizza__Topping--mushroom:nth-child(4) {\n        left: 240px;\n        top: 30px; }\n      .Pizza__Topping--mushroom:nth-child(5) {\n        left: 220px;\n        top: 129px; }\n    .Pizza__Topping--olive {\n      background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_8___ + ");\n      width: 45px;\n      height: 26px; }\n      .Pizza__Topping--olive:nth-child(1) {\n        left: 161px;\n        top: 60px; }\n      .Pizza__Topping--olive:nth-child(2) {\n        left: 90px;\n        top: 57px; }\n      .Pizza__Topping--olive:nth-child(3) {\n        left: 110px;\n        top: 110px; }\n      .Pizza__Topping--olive:nth-child(4) {\n        left: 279px;\n        top: 47px; }\n      .Pizza__Topping--olive:nth-child(5) {\n        display: none; }\n    .Pizza__Topping--onion {\n      background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_9___ + ");\n      width: 57px;\n      height: 36px; }\n      .Pizza__Topping--onion:nth-child(1) {\n        left: 101px;\n        top: 55px; }\n      .Pizza__Topping--onion:nth-child(2) {\n        left: 222px;\n        top: 98px; }\n      .Pizza__Topping--onion:nth-child(3) {\n        left: 261px;\n        top: 55px; }\n      .Pizza__Topping--onion:nth-child(4) {\n        left: 172px;\n        top: 132px; }\n      .Pizza__Topping--onion:nth-child(5) {\n        display: none; }\n    .Pizza__Topping--pepper {\n      background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_10___ + ");\n      width: 57px;\n      height: 36px; }\n      .Pizza__Topping--pepper:nth-child(1) {\n        left: 122px;\n        top: 30px; }\n      .Pizza__Topping--pepper:nth-child(2) {\n        left: 175px;\n        top: 87px; }\n      .Pizza__Topping--pepper:nth-child(3) {\n        left: 251px;\n        top: 115px; }\n      .Pizza__Topping--pepper:nth-child(4) {\n        left: 282px;\n        top: 69px; }\n      .Pizza__Topping--pepper:nth-child(5) {\n        left: 105px;\n        top: 82px; }\n    .Pizza__Topping--pepperoni {\n      background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_11___ + ");\n      width: 57px;\n      height: 36px; }\n      .Pizza__Topping--pepperoni:nth-child(1) {\n        left: 222px;\n        top: 35px; }\n      .Pizza__Topping--pepperoni:nth-child(2) {\n        left: 270px;\n        top: 106px; }\n      .Pizza__Topping--pepperoni:nth-child(3) {\n        left: 100px;\n        top: 60px; }\n      .Pizza__Topping--pepperoni:nth-child(4) {\n        left: 221px;\n        top: 80px; }\n      .Pizza__Topping--pepperoni:nth-child(5) {\n        left: 158px;\n        top: 30px; }\n    .Pizza__Topping--sweetcorn {\n      background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_12___ + ");\n      width: 57px;\n      height: 36px; }\n      .Pizza__Topping--sweetcorn:nth-child(1) {\n        left: 192px;\n        top: 35px; }\n      .Pizza__Topping--sweetcorn:nth-child(2) {\n        left: 41px;\n        top: 41px; }\n      .Pizza__Topping--sweetcorn:nth-child(3) {\n        left: 212px;\n        top: 146px; }\n      .Pizza__Topping--sweetcorn:nth-child(4), .Pizza__Topping--sweetcorn:nth-child(5) {\n        display: none; }\n    .Pizza__Topping--tomato {\n      background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_13___ + ");\n      width: 57px;\n      height: 36px; }\n      .Pizza__Topping--tomato:nth-child(1) {\n        left: 175px;\n        top: 120px; }\n      .Pizza__Topping--tomato:nth-child(2) {\n        left: 180px;\n        top: 50px; }\n      .Pizza__Topping--tomato:nth-child(3) {\n        left: 100px;\n        top: 100px; }\n      .Pizza__Topping--tomato:nth-child(4) {\n        left: 280px;\n        top: 51px; }\n      .Pizza__Topping--tomato:nth-child(5) {\n        left: 125px;\n        top: 35px; }\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/PriceCalculator/PriceCalculator.scss":
+/*!******************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/PriceCalculator/PriceCalculator.scss ***!
+  \******************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".Calculator__Enclosure {\n  margin-top: 10px;\n  border-top: 1px solid black; }\n  .Calculator__Enclosure-Value, .Calculator__Enclosure-Total, .Calculator__Enclosure-PizzaCost {\n    display: flex;\n    justify-content: space-between;\n    align-items: center; }\n  .Calculator__Enclosure-Value, .Calculator__Enclosure-PizzaCost {\n    padding: 0 10px 10px 10px; }\n  .Calculator__Enclosure-Total {\n    border-top: 1px solid black;\n    padding: 10px; }\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -66647,6 +66665,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _EditPizza_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_EditPizza_scss__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _store_actions_pizza_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../store/actions/pizza.actions */ "./src/store/actions/pizza.actions.tsx");
+/* harmony import */ var _PriceCalculator_PriceCalculator__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../PriceCalculator/PriceCalculator */ "./src/components/PriceCalculator/PriceCalculator.tsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 var __extends = undefined && undefined.__extends || function () {
@@ -66684,6 +66703,7 @@ var __decorate = undefined && undefined.__decorate || function (decorators, targ
   }
   return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -66762,7 +66782,11 @@ var EditPizza = function (_super) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "Body__Toppings-Selected"
       }, "\u2714")));
-    }))));
+    }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "EditPizza__Enclosure-Calculator"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PriceCalculator_PriceCalculator__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      target: this.props.selectedPizza
+    })));
   };
 
   EditPizza = __decorate([Object(react_redux__WEBPACK_IMPORTED_MODULE_5__["connect"])(_store_actions_pizza_actions__WEBPACK_IMPORTED_MODULE_6__["mapStateToProps"], _store_actions_pizza_actions__WEBPACK_IMPORTED_MODULE_6__["mapDispatchToProps"])], EditPizza);
@@ -66920,7 +66944,7 @@ var Home = function (_super) {
         toppings: _this.getToppings(pizza.Toppings)
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "Item__Title"
-      }, pizza.Name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, pizza.Name, " - $", pizza.Price), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "Item__Action"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_2__["Button"], {
         onClick: function onClick() {
@@ -67483,6 +67507,166 @@ var Pizza = function (_super) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (Pizza);
+
+/***/ }),
+
+/***/ "./src/components/PriceCalculator/PriceCalculator.scss":
+/*!*************************************************************!*\
+  !*** ./src/components/PriceCalculator/PriceCalculator.scss ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!./PriceCalculator.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/PriceCalculator/PriceCalculator.scss");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+var exported = content.locals ? content.locals : {};
+
+
+if (true) {
+  if (!content.locals) {
+    module.hot.accept(
+      /*! !../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!./PriceCalculator.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/PriceCalculator/PriceCalculator.scss",
+      function () {
+        var newContent = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!./PriceCalculator.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/PriceCalculator/PriceCalculator.scss");
+
+              newContent = newContent.__esModule ? newContent.default : newContent;
+
+              if (typeof newContent === 'string') {
+                newContent = [[module.i, newContent, '']];
+              }
+
+              update(newContent);
+      }
+    )
+  }
+
+  module.hot.dispose(function() { 
+    update();
+  });
+}
+
+module.exports = exported;
+
+/***/ }),
+
+/***/ "./src/components/PriceCalculator/PriceCalculator.tsx":
+/*!************************************************************!*\
+  !*** ./src/components/PriceCalculator/PriceCalculator.tsx ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _PriceCalculator_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PriceCalculator.scss */ "./src/components/PriceCalculator/PriceCalculator.scss");
+/* harmony import */ var _PriceCalculator_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_PriceCalculator_scss__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _store_actions_pizza_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../store/actions/pizza.actions */ "./src/store/actions/pizza.actions.tsx");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var __extends = undefined && undefined.__extends || function () {
+  var _extendStatics = function extendStatics(d, b) {
+    _extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function (d, b) {
+      d.__proto__ = b;
+    } || function (d, b) {
+      for (var p in b) {
+        if (b.hasOwnProperty(p)) d[p] = b[p];
+      }
+    };
+
+    return _extendStatics(d, b);
+  };
+
+  return function (d, b) {
+    _extendStatics(d, b);
+
+    function __() {
+      this.constructor = d;
+    }
+
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  };
+}();
+
+var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+  var c = arguments.length,
+      r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+      d;
+  if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+    if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  }
+  return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+var PriceCalculator = function (_super) {
+  __extends(PriceCalculator, _super);
+
+  function PriceCalculator() {
+    var _this = _super !== null && _super.apply(this, arguments) || this;
+
+    _this.pizzaCost = 7;
+    return _this;
+  }
+
+  PriceCalculator.prototype.calculateTotalFromToppings = function (toppings) {
+    var total = 0;
+
+    for (var i = 0; i < toppings.length; i++) {
+      if (toppings[i].isAdded) {
+        total += toppings[i].price;
+      }
+    }
+
+    total += this.pizzaCost;
+    return total;
+  };
+
+  PriceCalculator.prototype.render = function () {
+    var total = this.calculateTotalFromToppings(this.props.target.Toppings);
+    var toppings = this.props.target.Toppings.filter(function (topping) {
+      return topping.isAdded === true;
+    });
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "Calculator__Enclosure"
+    }, toppings.map(function (topping, index) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "Calculator__Enclosure-Value"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, topping.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "$" + topping.price.toFixed(2)));
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "Calculator__Enclosure-PizzaCost"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Base Price"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "$" + this.pizzaCost.toFixed(2))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "Calculator__Enclosure-Total"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Total:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "$", total.toFixed(2))));
+  };
+
+  PriceCalculator = __decorate([Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(_store_actions_pizza_actions__WEBPACK_IMPORTED_MODULE_3__["mapStateToProps"], _store_actions_pizza_actions__WEBPACK_IMPORTED_MODULE_3__["mapDispatchToProps"])], PriceCalculator);
+  return PriceCalculator;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (PriceCalculator);
 
 /***/ }),
 
@@ -68363,4 +68547,4 @@ module.exports = __webpack_require__(/*! ./src/index.tsx */"./src/index.tsx");
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.1e096d138d00f9f07aa5.js.map
+//# sourceMappingURL=main.083c658636c9c79daeb6.js.map
