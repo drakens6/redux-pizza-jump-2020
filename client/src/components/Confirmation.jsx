@@ -7,7 +7,12 @@ import { resetMenu } from '../actions/menu';
 import { clearCustomer } from '../actions/customer';
 import { resetPizza } from '../actions/pizza';
 
-const Confirmation = ({ resetMenu, customerRed }) => {
+const Confirmation = ({
+  customerRed,
+  resetMenu,
+  clearCustomer,
+  resetPizza,
+}) => {
   useEffect(() => {
     setTimeout(() => {
       clearCustomer();
@@ -33,6 +38,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   resetMenu: () => dispatch(resetMenu()),
+  clearCustomer: () => dispatch(clearCustomer()),
+  resetPizza: () => dispatch(resetPizza()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Confirmation);

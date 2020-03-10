@@ -15,3 +15,10 @@ You will be developing an application with 4 views. Our pizza shop has various c
 Develop in a way that looks appropriate in both mobile and desktop.
 
 Customer Fields: Email, Address, Phone Number, Name
+
+## Development
+
+```bash
+cd /client
+npm start
+```

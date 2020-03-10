@@ -9,7 +9,7 @@ import {
 const initialState = {
   sauceLevel: 0,
   crustSize: 8,
-  toppings: [],
+  toppings: ['cheese'],
 };
 
 export const pizza = (state = initialState, action) => {
