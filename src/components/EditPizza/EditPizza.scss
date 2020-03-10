@@ -1,0 +1,111 @@
+.EditPizza__Enclosure {
+    display: flex;
+    flex-direction: column;
+
+    &-Header {
+        padding: 10px 0;
+        border-bottom: 1px solid black;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &-Body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 350px;
+        margin-top: 10px;
+    }
+}
+
+.Body__Pizza {
+    padding: 10px 0;
+    position: relative;
+    // width: 30vh;
+    // border: 1px solid black;
+
+    
+}
+
+.Body__Toppings {
+    display: grid;
+    position: relative;
+    width: 35vh;
+
+    // careful, we may add new ingredients, increasing the height of the container
+    max-height: 300px;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+
+    &-Visible {
+        display: none;
+    }
+
+    &-Selected {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: green;
+    }
+
+    &-Button {
+        position: relative;
+    }
+    
+    &-Content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .Topping__Icon {
+        background-repeat: no-repeat;
+        width: 40px;
+    }
+
+    &-Icon {
+        
+        &--anchovy {
+            background-image: url("../../assets/toppings/anchovy.svg");
+        }
+        &--bacon {
+            background-image: url("../../assets/toppings/bacon.svg");
+        }
+        &--basil {
+            background-image: url("../../assets/toppings/basil.svg");
+        }
+        &--chili {
+            background-image: url("../../assets/toppings/chili.svg");
+        }
+        &--mozzarella {
+            background-image: url("../../assets/toppings/mozzarella.svg");
+        }
+        &--mushroom {
+            background-image: url("../../assets/toppings/mushroom.svg");
+        }
+        &--olive {
+            background-image: url("../../assets/toppings/olive.svg");
+        }
+        &--onion {
+            background-image: url("../../assets/toppings/onion.svg");
+        }
+        &--pepper {
+            background-image: url("../../assets/toppings/pepper.svg");
+        }
+        &--pepperoni {
+            background-image: url("../../assets/toppings/pepperoni.svg");
+        }
+        &--sweetcorn {
+            background-image: url("../../assets/toppings/sweetcorn.svg");
+        }
+        &--tomato {
+            background-image: url("../../assets/toppings/tomato.svg");
+        }
+    }
+
+
+}
+

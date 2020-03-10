@@ -1,0 +1,328 @@
+.Pizza {
+    // width: 530px;
+    // height: 342px;
+    // position: absolute;
+    max-width: 350px;
+    // z-index: 1;
+    // transform: translate3d(-530px, -282px, 0);
+    // transition: transform 0.2s;
+
+    &__Board {
+        position: relative;
+        background-image: url("../../assets/toppings/board.svg");
+        width: 400px;
+        height: 275px;
+        background-repeat: no-repeat;
+        margin: auto;
+    }
+
+    &__Base {
+        background-image: url("../../assets/toppings/base.svg");
+        width: 300px;
+        height: 200px;
+        position: absolute;
+        top: 0;
+        right: 25px;
+        background-repeat: no-repeat;
+        z-index: 1;
+    }
+
+
+    &__Topping {
+        position: absolute;
+        background-repeat: no-repeat;
+        background-size: contain;
+        z-index: 2;
+
+        &--anchovy {
+            background-image: url("../../assets/toppings/anchovy.svg");
+            width: 51px;
+            height: 37px;
+
+            &:nth-child(1) {
+                left: 280px;
+                top: 26px;
+            }
+            &:nth-child(2) {
+                left: 144px;
+                top: 74px;
+            }
+            &:nth-child(3) {
+                left: 263px;
+                top: 95px;
+            }
+            &:nth-child(4), &:nth-child(5) {
+                display: none;
+            }
+        }
+        &--bacon {
+            background-image: url("../../assets/toppings/bacon.svg");
+            width: 56px;
+            height: 31px;
+
+            &:nth-child(1) {
+                left: 124px;
+                top: 50px;
+            }
+            &:nth-child(2) {
+                left: 39px;
+                top: 100px;
+            }
+            &:nth-child(3) {
+                left: 132px;
+                top: 86px;
+            }
+            &:nth-child(4) {
+                left: 199px;
+                top: 59px;
+            }
+            &:nth-child(5) {
+                left: 140px;
+                top: 154px;
+            }
+            }
+            &--basil {
+            background-image: url("../../assets/toppings/basil.svg");
+            width: 46px;
+            height: 32px;
+
+            &:nth-child(1) {
+                left: 247px;
+                top: 14px;
+            }
+            &:nth-child(2) {
+                left: 126px;
+                top: 127px;
+            }
+            &:nth-child(3) {
+                left: 242px;
+                top: 120px;
+            }
+            &:nth-child(4), &:nth-child(5) {
+                display: none;
+            }
+            }
+            &--chili {
+            background-image: url("../../assets/toppings/chili.svg");
+            width: 63px;
+            height: 35px;
+
+            &:nth-child(1) {
+                left: 150px;
+                top: 40px;
+            }
+            &:nth-child(2) {
+                left: 68px;
+                top: 77px;
+            }
+            &:nth-child(3) {
+                left: 52px;
+                top: 144px;
+            }
+            &:nth-child(4) {
+                left: 210px;
+                top: 17px;
+            }
+            &:nth-child(5) {
+                left: 240px;
+                top: 120px;
+            }
+            }
+            &--mozzarella {
+            background-image: url("../../assets/toppings/mozzarella.svg");
+            width: 46px;
+            height: 32px;
+
+            &:nth-child(1) {
+                left: 6px;
+                top: 106px;
+            }
+            &:nth-child(2) {
+                left: 186px;
+                top: 114px;
+            }
+            &:nth-child(3) {
+                left: 162px;
+                top: 8px;
+            }
+            &:nth-child(4), &:nth-child(5) {
+                display: none;
+            }
+            }
+            &--mushroom {
+            background-image: url("../../assets/toppings/mushroom.svg");
+            width: 45px;
+            height: 26px;
+
+            &:nth-child(1) {
+                left: 120px;
+                top: 20px;
+            }
+            &:nth-child(2) {
+                left: 40px;
+                top: 60px;
+            }
+            &:nth-child(3) {
+                left: 90px;
+                top: 120px;
+            }
+            &:nth-child(4) {
+                left: 240px;
+                top: 30px;
+            }
+            &:nth-child(5) {
+                left: 220px;
+                top: 129px;
+            }
+            }
+            &--olive {
+            background-image: url("../../assets/toppings/olive.svg");
+            width: 45px;
+            height: 26px;
+
+            &:nth-child(1) {
+                left: 161px;
+                top: 60px;
+            }
+            &:nth-child(2) {
+                left: 90px;
+                top: 57px;
+            }
+            &:nth-child(3) {
+                left: 110px;
+                top: 110px;
+            }
+            &:nth-child(4) {
+                left: 279px;
+                top: 47px;
+            }
+            &:nth-child(5) {
+                display: none;
+            }
+            }
+            &--onion {
+            background-image: url("../../assets/toppings/onion.svg");
+            width: 57px;
+            height: 36px;
+
+            &:nth-child(1) {
+                left: 101px;
+                top: 55px;
+            }
+            &:nth-child(2) {
+                left: 222px;
+                top: 98px;
+            }
+            &:nth-child(3) {
+                left: 261px;
+                top: 55px;
+            }
+            &:nth-child(4) {
+                left: 172px;
+                top: 132px;
+            }
+            &:nth-child(5) {
+                display: none;
+            }
+            }
+            &--pepper {
+            background-image: url("../../assets/toppings/pepper.svg");
+            width: 57px;
+            height: 36px;
+
+            &:nth-child(1) {
+                left: 122px;
+                top: 30px;
+            }
+            &:nth-child(2) {
+                left: 175px;
+                top: 87px;
+            }
+            &:nth-child(3) {
+                left: 251px;
+                top: 115px;
+            }
+            &:nth-child(4) {
+                left: 282px;
+                top: 69px;
+            }
+            &:nth-child(5) {
+                left: 105px;
+                top: 82px;
+            }
+            }
+            &--pepperoni {
+            background-image: url("../../assets/toppings/pepperoni.svg");
+            width: 57px;
+            height: 36px;
+
+            &:nth-child(1) {
+                left: 222px;
+                top: 35px;
+            }
+            &:nth-child(2) {
+                left: 270px;
+                top: 106px;
+            }
+            &:nth-child(3) {
+                left: 100px;
+                top: 60px;
+            }
+            &:nth-child(4) {
+                left: 221px;
+                top: 80px;
+            }
+            &:nth-child(5) {
+                left: 158px;
+                top: 30px;
+            }
+            }
+            &--sweetcorn {
+            background-image: url("../../assets/toppings/sweetcorn.svg");
+            width: 57px;
+            height: 36px;
+
+            &:nth-child(1) {
+                left: 192px;
+                top: 35px;
+            }
+            &:nth-child(2) {
+                left: 41px;
+                top: 41px;
+            }
+            &:nth-child(3) {
+                left: 212px;
+                top: 146px;
+            }
+            &:nth-child(4), &:nth-child(5) {
+                display: none;
+            }
+            }
+            &--tomato {
+            background-image: url("../../assets/toppings/tomato.svg");
+            width: 57px;
+            height: 36px;
+
+            &:nth-child(1) {
+                left: 175px;
+                top: 120px;
+            }
+            &:nth-child(2) {
+                left: 180px;
+                top: 50px;
+            }
+            &:nth-child(3) {
+                left: 100px;
+                top: 100px;
+            }
+            &:nth-child(4) {
+                left: 280px;
+                top: 51px;
+            }
+            &:nth-child(5) {
+                left: 125px;
+                top: 35px;
+            }
+        }
+    }
+}
