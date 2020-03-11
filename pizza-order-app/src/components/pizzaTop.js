@@ -47,13 +47,14 @@ function PizzaTop() {
     const [cheese, setCheese] = React.useState('');
 
     const handleChange = event => {
-        if(event.target.id === "veggies"){
+        const {name, value} = event.target
+        if(name === "veggies"){
             
-            setVeggies(event.target.value);
-        }else if(event.target.id === "meats"){
-            setMeats(event.target.value);
-        }else if(event.target.id === "cheese"){
-            setCheese(event.target.value);
+            setVeggies(value);
+        }else if(name === "meats"){
+            setMeats(value);
+        }else if(name === "cheese"){
+            setCheese(value);
         }
     };
 
@@ -82,6 +83,9 @@ function PizzaTop() {
                     }
                     <br />
                     {/* <Button variant="contained" color="primary">Next</Button> */}
+                    <Button type="submit" variant="contained" color="primary">Save</Button>
+                    <br/><br/>
+                    Selections: {veggies} { meats } {cheese}
                 </CardContent>
             </Card>
         </Fragment>

@@ -10,6 +10,9 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
 import { Button } from '@material-ui/core'
+import { connect } from 'react-redux';
+import store from '../redux/store'
+import {addBase} from '../redux/actions/actions'
 
 const useStyles = makeStyles(theme => ({
     formControl: {
@@ -38,21 +41,28 @@ const baseOptions = {
     sauce: ['Marinara', 'BBQ', 'Alfredo']
 }
 
-function PizzaBase() {
+function PizzaBase(props) {
     const classes = useStyles();
     const [size, setSize] = React.useState('');
     const [crust, setCrust] = React.useState('');
     const [sauce, setSauce] = React.useState('');
 
     const handleChange = event => {
-        if(event.target.id === "size"){
-            setSize(event.target.value);
-        }else if(event.target.id === "crust"){
-            setCrust(event.target.value);
-        }else if(event.target.id === "sauce"){
-            setSauce(event.target.value);
+        const {name, value} = event.target
+        console.log(name)
+        if(name === "size"){
+            setSize(value);
+        }else if(name === "crust"){
+            setCrust(value);
+        }else if(name === "sauce"){
+            setSauce(value);
         }
     };
+
+    // const handleClick = () => {
+
+    // }
+     let {handleSubmit} = props
 
     return (
 
@@ -67,7 +77,7 @@ function PizzaBase() {
                                     {
                                         option[1].map((elem) => {
                                             return (
-                                                <FormControlLabel name={option[0]} value={elem} control={<Radio />} label={elem} />
+                                                <FormControlLabel key={'formLabel_'+elem}name={option[0]} value={elem} control={<Radio />} label={elem} />
                                             )
                                         })
                                     }
@@ -77,7 +87,10 @@ function PizzaBase() {
                     })
                     }
                     <br />
-                    {/* <Button variant="contained" color="primary">Next</Button> */}
+                    <Button type='submit' variant="contained" color="primary" onClick={handleSubmit}>Save</Button>
+                    <br/><br/>
+                    Selections: {size} { crust} {sauce}
+                    {props.base}
                 </CardContent>
             </Card>
         </Fragment>
@@ -85,4 +98,20 @@ function PizzaBase() {
     )
 }
 
-export default PizzaBase
+const mapStateToProps = (state) => {
+    return { base: state.base }
+}
+
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         onSubmit: data => dispatch(addBase(data))
+//     }
+// }
+
+
+export default connect(
+    mapStateToProps,
+    dispatch => ({
+        onClick: data => store.dispatch(addBase(data))
+    })
+)(PizzaBase)

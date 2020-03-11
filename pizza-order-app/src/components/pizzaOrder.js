@@ -12,6 +12,9 @@ import { Button } from '@material-ui/core'
 
 import PizzaBase from './pizzaBase'
 import PizzaTop from './pizzaTop'
+import { connect } from 'react-redux';
+import store from '../redux/store'
+import { addOrder, addBase, addTop } from '../redux/actions/actions';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -39,7 +42,16 @@ const selectOptions = [
     }
 ]
 
-function PizzaOrder() {
+function PizzaOrder(props) {
+
+    let [pizza, update] = useState({
+        size: '',
+        crust: '',
+        sauce: '',
+        veggies: '',
+        meats: '',
+        cheese: ''
+    })
 
     const classes = useStyles();
 
@@ -48,6 +60,17 @@ function PizzaOrder() {
     const handleChange = panel => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
     };
+
+
+    const handleBaseChange = (e) => {
+            const {name, value} = e.target
+            console.log('baseChange' + name)
+            update(
+             {...pizza, [name]: value}
+         )
+    }
+
+    let { handleSubmit } = props
 
     return (
         <TabPanel value='2' index='2'>
@@ -64,7 +87,7 @@ function PizzaOrder() {
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails>
                         <Typography>
-                            <PizzaBase></PizzaBase>
+                            <PizzaBase onChange={handleBaseChange}></PizzaBase>
                         </Typography>
                     </ExpansionPanelDetails>
                 </ExpansionPanel>
@@ -84,13 +107,18 @@ function PizzaOrder() {
                     </ExpansionPanelDetails>
                 </ExpansionPanel>
                 <br />
-                <Button variant="contained" color="primary" href="/review">Add to order</Button>
+                {/* href="/review" */}
+                <Button variant="contained" color="primary" onClick={handleSubmit}>Add to order</Button>
             </div>
         </TabPanel >
     )
 }
 
-export default PizzaOrder
+export default connect(
+    dispatch => ({
+        onSubmit: data => store.dispatch(addOrder(data))
+    })
+)(PizzaOrder)
 
 
 

@@ -12,7 +12,7 @@ import {
 import Home from './components/home'
 import User from './components/userInfo'
 import Order from './components/pizzaOrder'
-import Review from './components/finalOrder'
+import Review from './components/orderList'
 
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
