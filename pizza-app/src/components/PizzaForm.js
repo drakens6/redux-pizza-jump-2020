@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Container, Form, Rating, Select, Button } from 'semantic-ui-react';
 import { createPizza, updateView } from '../actions';
 
+import Button1 from './button/button';
+
 const crustOptions = [
   { key: "hand-tossed", text: "Hand-tossed", value: "hand-tossed" },
   { key: "thin-crust", text: "Thin crust", value: "thin-crust" },
@@ -42,7 +44,8 @@ const PizzaForm = (props) => {
           <label>Sauce: </label>
           <Rating defaultRating={level} maxRating={5} onRate={rateChange} size="massive"/>
         </Form.Field>
-        <Button type="submit">Create Pizza</Button>
+        {/* <Button type="submit">Create Pizza</Button> */}
+        <Button1 label="Create Pizza" className="button-style"></Button1>
       </Form>
     </Container>
   )
