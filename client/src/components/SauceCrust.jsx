@@ -19,12 +19,10 @@ const SauceCrust = ({ pizzaRed, setSauceLevel, setCrustSize, nextMenu }) => {
 
   const handleCrustSizeSelect = e => {
     setCrustSize(e.target.value);
-    console.log(e.target.value);
   };
 
   const handleSauceLevelSelect = e => {
     setSauceLevel(e.target.value);
-    console.log(e.target.value);
   };
 
   return (

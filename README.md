@@ -16,9 +16,23 @@ Develop in a way that looks appropriate in both mobile and desktop.
 
 Customer Fields: Email, Address, Phone Number, Name
 
+## Installation
+
+```bash
+cd client
+npm install
+```
+
 ## Development
 
 ```bash
-cd /client
+cd client
 npm start
+```
+
+## Jest Testing
+
+```bash
+cd client
+npm test
 ```
