@@ -13,11 +13,10 @@ let initialState = {
     state: ''
 }
 
-export default function pizzaOrder(state = initialState, action = {}) {
+export default function customerInfo(state = initialState, action = {}) {
     switch (action.type) {
         case ADD_USER:
-            state = action.data
-            return state
+            return action.data
         default:
             return state
     }

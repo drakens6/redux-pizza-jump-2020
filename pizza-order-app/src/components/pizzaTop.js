@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import React, { Fragment } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -18,19 +18,8 @@ const useStyles = makeStyles(theme => ({
     },
     root: {
         minWidth: 500,
-
-    },
-    bullet: {
-        display: 'inline-block',
-        margin: '0 10px',
-        transform: 'scale(0.8)',
-    },
-    title: {
-        fontSize: 18,
-    },
-    pos: {
-        marginBottom: 20,
-    },
+        
+    }
 }));
 
 const topOptions = {
@@ -40,35 +29,19 @@ const topOptions = {
 }
 
 
-function PizzaTop() {
+function PizzaTop({ handleTopChange }) {
     const classes = useStyles();
-    const [veggies, setVeggies] = React.useState('');
-    const [meats, setMeats] = React.useState('');
-    const [cheese, setCheese] = React.useState('');
-
-    const handleChange = event => {
-        const {name, value} = event.target
-        if(name === "veggies"){
-            
-            setVeggies(value);
-        }else if(name === "meats"){
-            setMeats(value);
-        }else if(name === "cheese"){
-            setCheese(value);
-        }
-    };
-
 
     return (
 
         <Fragment>
             <Card className={classes.root}>
                 <CardContent>
-                    {Object.entries(topOptions).map((option, index) => {
+                    {Object.entries(topOptions).map((option) => {
                         return (
                             <FormControl component="fieldset" className={classes.formControl}>
-                                <FormLabel component="legend">{option[0]}</FormLabel>
-                                <RadioGroup aria-label={option[0]} name={option[0]} onChange={handleChange} id={option}>
+                                <FormLabel component="legend">{option[0][0].toUpperCase()+option[0].slice(1)}</FormLabel>
+                                <RadioGroup aria-label={option[0]} name={option[0]} handleTopChange={handleTopChange} id={option}>
                                     {
                                         option[1].map((elem) => {
                                             return (
@@ -81,11 +54,9 @@ function PizzaTop() {
                         )
                     })
                     }
-                    <br />
-                    {/* <Button variant="contained" color="primary">Next</Button> */}
+                    {/* <div>
                     <Button type="submit" variant="contained" color="primary">Save</Button>
-                    <br/><br/>
-                    Selections: {veggies} { meats } {cheese}
+                    </div> */}
                 </CardContent>
             </Card>
         </Fragment>

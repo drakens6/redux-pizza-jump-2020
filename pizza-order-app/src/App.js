@@ -12,7 +12,7 @@ import {
 import Home from './components/home'
 import User from './components/userInfo'
 import Order from './components/pizzaOrder'
-import Review from './components/orderList'
+import Review from './components/orderReview'
 
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
@@ -46,7 +46,7 @@ function App() {
         <div className="App">
           <AppBar>
             <Tabs aria-label="simple tabs example" centered>
-              {Links.map((link, index) => {
+              {Links.map((link) => {
                 return (
                   <Tab key={link.name} label={link.name} component={Link} to={link.to}></Tab>
                 )

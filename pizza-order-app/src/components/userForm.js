@@ -1,12 +1,14 @@
 import React, { Fragment, useState } from 'react'
+import {useHistory} from 'react-router-dom'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import store from '../redux/store'
 import { addUser } from '../redux/actions/actions';
-import { InputLabel, Button, Input } from '@material-ui/core'
+import { InputLabel, Button} from '@material-ui/core'
 
-function UserForm(props) {
+function UserForm({ handleSubmit }) {
 
+    const history = useHistory()
     let [model, update] = useState({
         name: '',
         number: '',
@@ -25,24 +27,25 @@ function UserForm(props) {
 
     }
 
-
-    let { handleSubmit} = props;
+    const handleClick = () => {
+        history.push('/order')
+    }
 
     return (
         <form onSubmit={handleSubmit}>
-            {Object.keys(model).map((field, index) => {
+            {Object.keys(model).map((field) => {
                 return (
                     <Fragment key={'key_' + field}>
-                        <InputLabel htmlFor={field}>{field}</InputLabel>
+                        <InputLabel htmlFor={field} style={{textDecorationLine: 'underline', padding: '5px'}}>{field[0].toUpperCase() + field.slice(1)}</InputLabel>
                         <Field key={'key_' + field} name={field} component="input" type="text" onChange={handleChange} />
-                        {/* <Input key={'key_' + field} title={field} type='text' name={field} required={true} onChange={handleChange}/> */}
                     </Fragment>
                 )
             })}
-            <br /><br />
-            {/* href="/order" */}
-            <Button type="submit" variant="contained" color="primary">Save</Button>
-            {/* <Button variant="contained" color="primary" href="/order">Customize Pizza</Button> */}
+            <div>
+                <br/>
+                <Button type="submit" variant="contained" color="primary" style={{margin: '10px'}}>Save</Button>
+                <Button variant="contained" color="primary" onClick={handleClick} style={{margin: '10px'}}>Next</Button>
+            </div>
         </form>
     )
 }
@@ -52,20 +55,8 @@ const Form = reduxForm({
 
 })(UserForm)
 
-const mapStateToProps = (state) => {
-    return { user: state.user }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onSubmit: data => dispatch(addUser(data))
-    }
-}
-
-
 export default connect(
-  //  mapStateToProps,
-   // mapDispatchToProps
+
     dispatch => ({
         onSubmit: data => store.dispatch(addUser(data))
     })

@@ -1,5 +1,5 @@
 import {
-    ADD_USER, ADD_ORDER, ADD_BASE, ADD_TOP, DELETE_PIZZA
+    ADD_USER, ADD_ORDER, ADD_PIZZA, DELETE_PIZZA
 } from './actionTypes'
 
 
@@ -12,8 +12,8 @@ export function addOrder(data){
     return {type: ADD_ORDER, data}
 }
 
-export function addBase(data){
-    return {type: ADD_BASE, data}
+export function addPizza(data){
+    return {type: ADD_PIZZA, data}
 }
 
 export function deletePizza(index){
