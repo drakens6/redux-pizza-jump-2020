@@ -10,13 +10,26 @@ import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 
 import { setToppings, clearToppings } from '../actions/pizza';
-import { nextMenu } from '../actions/menu';
+import { nextMenu, previousMenu } from '../actions/menu';
 
 const animatedComponents = makeAnimated();
 
-const Toppings = ({ pizzaRed, nextMenu, setToppings, clearToppings }) => {
+const Toppings = ({
+  pizzaRed,
+  nextMenu,
+  setToppings,
+  clearToppings,
+  previousMenu,
+}) => {
+  const handlePrev = e => {
+    e.preventDefault();
+    // Navigate user to the previous step
+    previousMenu();
+  };
+
   const handleNext = e => {
     e.preventDefault();
+    // Navigate user to the next step
     nextMenu();
   };
 
@@ -60,8 +73,11 @@ const Toppings = ({ pizzaRed, nextMenu, setToppings, clearToppings }) => {
         isMulti
       />
       <div className="mt-3">
+        <Button variant="secondary" type="button" onClick={e => handlePrev(e)}>
+          Back
+        </Button>{' '}
         <Button variant="success" type="button" onClick={e => handleNext(e)}>
-          Ok
+          Next
         </Button>
       </div>
     </Fragment>
@@ -78,6 +94,7 @@ const mapDispatchToProps = dispatch => ({
   setToppings: toppings => dispatch(setToppings(toppings)),
   clearToppings: () => dispatch(clearToppings()),
   nextMenu: () => dispatch(nextMenu()),
+  previousMenu: () => dispatch(previousMenu()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Toppings);

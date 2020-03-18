@@ -3,25 +3,29 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { Button, Col, Row } from 'react-bootstrap';
-import { nextMenu } from '../actions/menu';
+import { nextMenu, previousMenu } from '../actions/menu';
 
 import { TOPPINGS, SAUCE_LEVELS, CRUST_SIZES } from '../config/constants';
 
-const ReviewOrder = ({ nextMenu, customerRed, pizzaRed }) => {
+const ReviewOrder = ({ nextMenu, previousMenu, customerRed, pizzaRed }) => {
+  const handlePrev = e => {
+    e.preventDefault();
+    // Navigate user to the previous step
+    previousMenu();
+  };
+
   const handleNext = e => {
     e.preventDefault();
     nextMenu();
   };
 
-  console.log(TOPPINGS);
+  // map and filter the selected toppings
   const selectedToppings = TOPPINGS.reduce((accumulator, topping) => {
     if (pizzaRed.toppings.includes(topping.value)) {
       accumulator.push(topping.label);
     }
     return accumulator;
   }, []);
-
-  console.log(selectedToppings);
 
   return (
     <Fragment>
@@ -32,6 +36,7 @@ const ReviewOrder = ({ nextMenu, customerRed, pizzaRed }) => {
           <Col>Sauce Level</Col>
           <Col>
             {
+              // map sauce level id to string
               SAUCE_LEVELS.find(sauce => sauce.value === pizzaRed.sauceLevel)
                 .label
             }
@@ -41,6 +46,7 @@ const ReviewOrder = ({ nextMenu, customerRed, pizzaRed }) => {
           <Col>Crust Size</Col>
           <Col>
             {
+              // map crust size id to string
               CRUST_SIZES.find(crust => crust.value === pizzaRed.crustSize)
                 .label
             }
@@ -81,6 +87,9 @@ const ReviewOrder = ({ nextMenu, customerRed, pizzaRed }) => {
       <p>
         <i>Please review your order.</i>
       </p>
+      <Button variant="secondary" type="button" onClick={e => handlePrev(e)}>
+        Back
+      </Button>{' '}
       <Button variant="success" type="submit" onClick={e => handleNext(e)}>
         Confirm Order
       </Button>
@@ -97,6 +106,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   nextMenu: () => dispatch(nextMenu()),
+  previousMenu: () => dispatch(previousMenu()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReviewOrder);

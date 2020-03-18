@@ -13,7 +13,10 @@ const Main = ({ menuRed }) => {
   useEffect(() => {
     console.log(menuRed);
   }, []);
+
   return (
+    // Display a proper component based on the order step.
+    // We can alternatively use routing, but this works just as fine.
     <div>
       {menuRed.step === 0 && <Landing />}
       {menuRed.step === 1 && <SauceCrust />}

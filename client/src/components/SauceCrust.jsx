@@ -5,23 +5,38 @@ import { connect } from 'react-redux';
 import { Form, Button } from 'react-bootstrap';
 
 import { setSauceLevel, setCrustSize } from '../actions/pizza';
-import { nextMenu } from '../actions/menu';
+import { nextMenu, previousMenu } from '../actions/menu';
 
 import { CRUST_SIZES, SAUCE_LEVELS } from '../config/constants';
 
-const SauceCrust = ({ pizzaRed, setSauceLevel, setCrustSize, nextMenu }) => {
+const SauceCrust = ({
+  pizzaRed,
+  setSauceLevel,
+  setCrustSize,
+  nextMenu,
+  previousMenu,
+}) => {
   useEffect(() => {}, []);
+
+  const handlePrev = e => {
+    e.preventDefault();
+    // Navigate user to the previous step
+    previousMenu();
+  };
 
   const handleNext = e => {
     e.preventDefault();
+    // Navigate user to the next step
     nextMenu();
   };
 
   const handleCrustSizeSelect = e => {
+    // Update crust size state
     setCrustSize(e.target.value);
   };
 
   const handleSauceLevelSelect = e => {
+    // Update sauce level state
     setSauceLevel(e.target.value);
   };
 
@@ -61,6 +76,9 @@ const SauceCrust = ({ pizzaRed, setSauceLevel, setCrustSize, nextMenu }) => {
             })}
           </Form.Control>
         </Form.Group>
+        <Button variant="secondary" type="button" onClick={e => handlePrev(e)}>
+          Back
+        </Button>{' '}
         <Button variant="success" type="submit">
           Next
         </Button>
@@ -79,6 +97,7 @@ const mapDispatchToProps = dispatch => ({
   setSauceLevel: level => dispatch(setSauceLevel(level)),
   setCrustSize: size => dispatch(setCrustSize(size)),
   nextMenu: () => dispatch(nextMenu()),
+  previousMenu: () => dispatch(previousMenu()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SauceCrust);

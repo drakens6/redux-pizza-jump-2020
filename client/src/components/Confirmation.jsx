@@ -14,6 +14,7 @@ const Confirmation = ({
   resetPizza,
 }) => {
   useEffect(() => {
+    // navigate back to the Landing view after 7 seconds, clearing all the Redux states
     setTimeout(() => {
       clearCustomer();
       resetPizza();

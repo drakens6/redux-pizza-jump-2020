@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 
 import { Form, Button } from 'react-bootstrap';
 import { setCustomer } from '../actions/customer';
-import { nextMenu } from '../actions/menu';
+import { nextMenu, previousMenu } from '../actions/menu';
 
-const Customer = ({ customerRed, setCustomer, nextMenu }) => {
+const Customer = ({ customerRed, setCustomer, nextMenu, previousMenu }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -41,10 +41,17 @@ const Customer = ({ customerRed, setCustomer, nextMenu }) => {
     // });
   };
 
+  const handlePrev = e => {
+    e.preventDefault();
+    // Navigate user to the previous step
+    previousMenu();
+  };
+
   const handleNext = e => {
     e.preventDefault();
-    console.log('Next!');
+    // Update the global customer state
     setCustomer(formData);
+    // Navigate user to the next step
     nextMenu();
   };
 
@@ -112,6 +119,9 @@ const Customer = ({ customerRed, setCustomer, nextMenu }) => {
             onChange={e => handleInputChange(e)}
           />
         </Form.Group>
+        <Button variant="secondary" type="button" onClick={e => handlePrev(e)}>
+          Back
+        </Button>{' '}
         <Button variant="success" type="submit" disabled={!isValid}>
           Review Order
         </Button>
@@ -129,6 +139,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   setCustomer: data => dispatch(setCustomer(data)),
   nextMenu: () => dispatch(nextMenu()),
+  previousMenu: () => dispatch(previousMenu()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Customer);
