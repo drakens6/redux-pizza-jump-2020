@@ -1,14 +1,13 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-
 import { connect } from 'react-redux';
 
 import { Button } from 'react-bootstrap';
 import { nextMenu } from '../actions/menu';
 
 // This view is displayed when the App is first loaded or a new order is to be made
-const Landing = ({ nextMenu }) => {
-  const handleClick = e => {
+export const UnconnectedLanding = ({ nextMenu }) => {
+  const handleClick = (e) => {
     e.preventDefault();
     // Navigate user to the first step of the order (sauce and crust)
     nextMenu();
@@ -18,7 +17,11 @@ const Landing = ({ nextMenu }) => {
     <Fragment>
       <div className="text-center">
         <h1 className="display-4">Welcome to Anton's Pizza</h1>
-        <Button variant="success" onClick={e => handleClick(e)}>
+        <Button
+          variant="success"
+          onClick={(e) => handleClick(e)}
+          data-test="order-button"
+        >
           Order my Pizza, Now!
         </Button>
       </div>
@@ -26,12 +29,14 @@ const Landing = ({ nextMenu }) => {
   );
 };
 
-Landing.propTypes = {};
+UnconnectedLanding.propTypes = {
+  nextMenu: PropTypes.func.isRequired,
+};
 
-const mapStateToProps = state => ({});
+const mapStateToProps = (state) => ({});
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   nextMenu: () => dispatch(nextMenu()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Landing);
+export default connect(mapStateToProps, mapDispatchToProps)(UnconnectedLanding);

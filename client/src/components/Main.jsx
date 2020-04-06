@@ -9,31 +9,33 @@ import Toppings from './Toppings';
 import ReviewOrder from './ReviewOrder';
 import Confirmation from './Confirmation';
 
-const Main = ({ menuRed }) => {
+const Main = ({ step }) => {
   useEffect(() => {
-    console.log(menuRed);
+    console.log(step);
   }, []);
 
   return (
     // Display a proper component based on the order step.
     // We can alternatively use routing, but this works just as fine.
-    <div>
-      {menuRed.step === 0 && <Landing />}
-      {menuRed.step === 1 && <SauceCrust />}
-      {menuRed.step === 2 && <Toppings />}
-      {menuRed.step === 3 && <Customer />}
-      {menuRed.step === 4 && <ReviewOrder />}
-      {menuRed.step === 5 && <Confirmation />}
+    <div data-test="component-main">
+      {step === 0 && <Landing />}
+      {step === 1 && <SauceCrust />}
+      {step === 2 && <Toppings />}
+      {step === 3 && <Customer />}
+      {step === 4 && <ReviewOrder />}
+      {step === 5 && <Confirmation />}
     </div>
   );
 };
 
-Main.propTypes = {};
+Main.propTypes = {
+  step: PropTypes.number.isRequired,
+};
 
-const mapStateToProps = state => ({
-  menuRed: state.menu,
+const mapStateToProps = (state) => ({
+  step: state.menu.step,
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = (dispatch) => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
