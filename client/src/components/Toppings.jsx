@@ -14,35 +14,35 @@ import { nextMenu, previousMenu } from '../actions/menu';
 
 const animatedComponents = makeAnimated();
 
-const Toppings = ({
-  pizzaRed,
+export const UnconnectedToppings = ({
+  pizza,
   nextMenu,
   setToppings,
   clearToppings,
   previousMenu,
 }) => {
-  const handlePrev = e => {
+  const handlePrev = (e) => {
     e.preventDefault();
     // Navigate user to the previous step
     previousMenu();
   };
 
-  const handleNext = e => {
+  const handleNext = (e) => {
     e.preventDefault();
     // Navigate user to the next step
     nextMenu();
   };
 
-  const handleChange = selectedOptions => {
+  const handleChange = (selectedOptions) => {
     const toppingValues =
       selectedOptions === null
         ? []
-        : selectedOptions.map(topping => topping.value);
+        : selectedOptions.map((topping) => topping.value);
     setToppings(toppingValues);
   };
 
-  const isToppingSelected = testValue => {
-    for (let value of pizzaRed.toppings) {
+  const isToppingSelected = (testValue) => {
+    for (let value of pizza.toppings) {
       if (value === testValue) {
         return true;
       }
@@ -71,12 +71,23 @@ const Toppings = ({
         options={availableToppings}
         onChange={handleChange}
         isMulti
+        data-test="multi-select-toppings"
       />
       <div className="mt-3">
-        <Button variant="secondary" type="button" onClick={e => handlePrev(e)}>
+        <Button
+          variant="secondary"
+          type="button"
+          onClick={(e) => handlePrev(e)}
+          data-test="button-back"
+        >
           Back
         </Button>{' '}
-        <Button variant="success" type="button" onClick={e => handleNext(e)}>
+        <Button
+          variant="success"
+          type="button"
+          onClick={(e) => handleNext(e)}
+          data-test="button-next"
+        >
           Next
         </Button>
       </div>
@@ -84,17 +95,26 @@ const Toppings = ({
   );
 };
 
-Toppings.propTypes = {};
+UnconnectedToppings.propTypes = {
+  pizza: PropTypes.object.isRequired,
+  setToppings: PropTypes.func.isRequired,
+  clearToppings: PropTypes.func.isRequired,
+  nextMenu: PropTypes.func.isRequired,
+  previousMenu: PropTypes.func.isRequired,
+};
 
-const mapStateToProps = state => ({
-  pizzaRed: state.pizza,
+const mapStateToProps = (state) => ({
+  pizza: state.pizza,
 });
 
-const mapDispatchToProps = dispatch => ({
-  setToppings: toppings => dispatch(setToppings(toppings)),
+const mapDispatchToProps = (dispatch) => ({
+  setToppings: (toppings) => dispatch(setToppings(toppings)),
   clearToppings: () => dispatch(clearToppings()),
   nextMenu: () => dispatch(nextMenu()),
   previousMenu: () => dispatch(previousMenu()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Toppings);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(UnconnectedToppings);
