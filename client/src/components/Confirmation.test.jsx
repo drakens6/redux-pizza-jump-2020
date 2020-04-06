@@ -6,7 +6,7 @@ import { createStoreWithMiddleware } from '../store';
 import Confirmation, { UnconnectedConfirmation } from './Confirmation';
 
 /**
- * Factory function to create a ShallowWrapper for the Landing component.
+ * Factory function to create a ShallowWrapper for the Confirmation component.
  * @param {*} initialState - Initial state for this setup
  * @returns {ShallowWrapper}
  */

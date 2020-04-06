@@ -23,7 +23,7 @@ const Main = ({ step }) => {
       {step === 2 && <Toppings />}
       {step === 3 && <Customer />}
       {step === 4 && <ReviewOrder />}
-      {step === 5 && <Confirmation resetDelay={3000} />}
+      {step === 5 && <Confirmation resetDelay={5000} />}
     </div>
   );
 };

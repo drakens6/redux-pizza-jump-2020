@@ -9,8 +9,8 @@ import { nextMenu, previousMenu } from '../actions/menu';
 
 import { CRUST_SIZES, SAUCE_LEVELS } from '../config/constants';
 
-const SauceCrust = ({
-  pizzaRed,
+export const UnconnectedSauceCrust = ({
+  pizza,
   setSauceLevel,
   setCrustSize,
   nextMenu,
@@ -18,24 +18,24 @@ const SauceCrust = ({
 }) => {
   useEffect(() => {}, []);
 
-  const handlePrev = e => {
+  const handlePrev = (e) => {
     e.preventDefault();
     // Navigate user to the previous step
     previousMenu();
   };
 
-  const handleNext = e => {
+  const handleNext = (e) => {
     e.preventDefault();
     // Navigate user to the next step
     nextMenu();
   };
 
-  const handleCrustSizeSelect = e => {
+  const handleCrustSizeSelect = (e) => {
     // Update crust size state
     setCrustSize(e.target.value);
   };
 
-  const handleSauceLevelSelect = e => {
+  const handleSauceLevelSelect = (e) => {
     // Update sauce level state
     setSauceLevel(e.target.value);
   };
@@ -43,15 +43,16 @@ const SauceCrust = ({
   return (
     <Fragment>
       <h1 className="display-4">Sauce and Crust</h1>
-      <Form onSubmit={e => handleNext(e)}>
+      <Form onSubmit={(e) => handleNext(e)}>
         <Form.Group controlId="sauceCrust.crustSize">
           <Form.Label>Crust Diameter</Form.Label>
           <Form.Control
             as="select"
-            defaultValue={pizzaRed.crustSize.toString()}
-            onChange={e => handleCrustSizeSelect(e)}
+            defaultValue={pizza.crustSize.toString()}
+            onChange={(e) => handleCrustSizeSelect(e)}
+            data-test="select-crust-size"
           >
-            {CRUST_SIZES.map(crust => {
+            {CRUST_SIZES.map((crust) => {
               return (
                 <option key={crust.value} value={crust.value.toString()}>
                   {crust.label}
@@ -64,10 +65,11 @@ const SauceCrust = ({
           <Form.Label>Sauce Level</Form.Label>
           <Form.Control
             as="select"
-            defaultValue={pizzaRed.sauceLevel.toString()}
-            onChange={e => handleSauceLevelSelect(e)}
+            defaultValue={pizza.sauceLevel.toString()}
+            onChange={(e) => handleSauceLevelSelect(e)}
+            data-test="select-sauce-level"
           >
-            {SAUCE_LEVELS.map(sauce => {
+            {SAUCE_LEVELS.map((sauce) => {
               return (
                 <option key={sauce.value} value={sauce.value.toString()}>
                   {sauce.label}
@@ -76,10 +78,15 @@ const SauceCrust = ({
             })}
           </Form.Control>
         </Form.Group>
-        <Button variant="secondary" type="button" onClick={e => handlePrev(e)}>
+        <Button
+          variant="secondary"
+          type="button"
+          onClick={(e) => handlePrev(e)}
+          data-test="button-back"
+        >
           Back
         </Button>{' '}
-        <Button variant="success" type="submit">
+        <Button variant="success" type="submit" data-test="button-next">
           Next
         </Button>
       </Form>
@@ -87,17 +94,26 @@ const SauceCrust = ({
   );
 };
 
-SauceCrust.propTypes = {};
+UnconnectedSauceCrust.propTypes = {
+  pizza: PropTypes.object.isRequired,
+  setSauceLevel: PropTypes.func.isRequired,
+  setCrustSize: PropTypes.func.isRequired,
+  nextMenu: PropTypes.func.isRequired,
+  previousMenu: PropTypes.func.isRequired,
+};
 
-const mapStateToProps = state => ({
-  pizzaRed: state.pizza,
+const mapStateToProps = (state) => ({
+  pizza: state.pizza,
 });
 
-const mapDispatchToProps = dispatch => ({
-  setSauceLevel: level => dispatch(setSauceLevel(level)),
-  setCrustSize: size => dispatch(setCrustSize(size)),
+const mapDispatchToProps = (dispatch) => ({
+  setSauceLevel: (level) => dispatch(setSauceLevel(level)),
+  setCrustSize: (size) => dispatch(setCrustSize(size)),
   nextMenu: () => dispatch(nextMenu()),
   previousMenu: () => dispatch(previousMenu()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SauceCrust);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(UnconnectedSauceCrust);
