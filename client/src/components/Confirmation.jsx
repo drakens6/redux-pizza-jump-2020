@@ -21,7 +21,7 @@ export const UnconnectedConfirmation = ({
       resetPizza();
       resetMenu();
     }, resetDelay);
-  }, []);
+  }, [resetDelay, clearCustomer, resetPizza, resetMenu]);
 
   return (
     <Fragment>

@@ -16,13 +16,15 @@ export const UnconnectedLanding = ({ nextMenu }) => {
   return (
     <Fragment>
       <div className="text-center">
-        <h1 className="display-4">Welcome to Anton's Pizza</h1>
+        <h1 className="display-4" data-test="heading-text">
+          Welcome to Anton's Pizza
+        </h1>
         <Button
           variant="success"
           onClick={(e) => handleClick(e)}
-          data-test="order-button"
+          data-test="button-order"
         >
-          Order my Pizza, Now!
+          Begin my Order Now!
         </Button>
       </div>
     </Fragment>

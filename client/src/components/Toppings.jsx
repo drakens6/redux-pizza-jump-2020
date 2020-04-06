@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { TOPPINGS } from '../config/constants';
 
-import { Form, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';

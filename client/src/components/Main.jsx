@@ -12,7 +12,7 @@ import Confirmation from './Confirmation';
 const Main = ({ step }) => {
   useEffect(() => {
     console.log(step);
-  }, []);
+  }, [step]);
 
   return (
     // Display a proper component based on the order step.

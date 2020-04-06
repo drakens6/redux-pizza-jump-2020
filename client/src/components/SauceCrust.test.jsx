@@ -20,25 +20,25 @@ const setup = (initialState = {}) => {
 };
 
 describe('<SauceCrust />', () => {
-  test('Contains the crust-size selector', () => {
+  test('Renders the crust-size selector', () => {
     const wrapper = setup();
     const component = findByTestAttr(wrapper, 'select-crust-size');
     expect(component.length).toBe(1);
   });
 
-  test('Contains the sauce-level selector', () => {
+  test('Renders the sauce-level selector', () => {
     const wrapper = setup();
     const component = findByTestAttr(wrapper, 'select-sauce-level');
     expect(component.length).toBe(1);
   });
 
-  test('Contains the back button', () => {
+  test('Renders the back button', () => {
     const wrapper = setup();
     const component = findByTestAttr(wrapper, 'button-back');
     expect(component.length).toBe(1);
   });
 
-  test('Contains the next button', () => {
+  test('Renders the next button', () => {
     const wrapper = setup();
     const component = findByTestAttr(wrapper, 'button-next');
     expect(component.length).toBe(1);

@@ -20,13 +20,19 @@ const setup = (initialState = {}) => {
 };
 
 describe('<Landing />', () => {
-  test('Contains the begin order button', () => {
+  test('Renders the heading text', () => {
     const wrapper = setup();
-    const component = findByTestAttr(wrapper, 'order-button');
+    const component = findByTestAttr(wrapper, 'heading-text');
     expect(component.length).toBe(1);
   });
 
-  test('Clicking the order button calls `nextStep` action creator', () => {
+  test('Renders the begin order button', () => {
+    const wrapper = setup();
+    const component = findByTestAttr(wrapper, 'button-order');
+    expect(component.length).toBe(1);
+  });
+
+  test('Clicking button calls `nextStep` action creator', () => {
     const nextMenuMock = jest.fn();
 
     const props = {
@@ -37,7 +43,7 @@ describe('<Landing />', () => {
     const wrapper = shallow(<UnconnectedLanding {...props} />);
 
     // Click the order button
-    const button = findByTestAttr(wrapper, 'order-button');
+    const button = findByTestAttr(wrapper, 'button-order');
     button.simulate('click', { preventDefault: () => {} });
 
     // check to see if mock ran

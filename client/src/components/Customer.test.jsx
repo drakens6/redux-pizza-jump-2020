@@ -20,49 +20,49 @@ const setup = (initialState = {}) => {
 };
 
 describe('<Customer />', () => {
-  test('Contains the customer name input', () => {
+  test('Renders the customer name input', () => {
     const wrapper = setup();
     const component = findByTestAttr(wrapper, 'input-customer-name');
     expect(component.length).toBe(1);
   });
 
-  test('Contains the customer email input', () => {
+  test('Renders the customer email input', () => {
     const wrapper = setup();
     const component = findByTestAttr(wrapper, 'input-customer-email');
     expect(component.length).toBe(1);
   });
 
-  test('Contains the customer street input', () => {
+  test('Renders the customer street input', () => {
     const wrapper = setup();
     const component = findByTestAttr(wrapper, 'input-customer-street');
     expect(component.length).toBe(1);
   });
 
-  test('Contains the customer city input', () => {
+  test('Renders the customer city input', () => {
     const wrapper = setup();
     const component = findByTestAttr(wrapper, 'input-customer-city');
     expect(component.length).toBe(1);
   });
 
-  test('Contains the customer state input', () => {
+  test('Renders the customer state input', () => {
     const wrapper = setup();
     const component = findByTestAttr(wrapper, 'input-customer-state');
     expect(component.length).toBe(1);
   });
 
-  test('Contains the customer phone input', () => {
+  test('Renders the customer phone input', () => {
     const wrapper = setup();
     const component = findByTestAttr(wrapper, 'input-customer-phone');
     expect(component.length).toBe(1);
   });
 
-  test('Contains the back button', () => {
+  test('Renders the back button', () => {
     const wrapper = setup();
     const component = findByTestAttr(wrapper, 'button-back');
     expect(component.length).toBe(1);
   });
 
-  test('Contains the next button', () => {
+  test('Renders the next button', () => {
     const wrapper = setup();
     const component = findByTestAttr(wrapper, 'button-next');
     expect(component.length).toBe(1);

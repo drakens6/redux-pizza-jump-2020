@@ -32,7 +32,7 @@ export const UnconnectedCustomer = ({
 
   useEffect(() => {
     setFormData(() => ({ ...customer }));
-  }, []);
+  }, [customer]);
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

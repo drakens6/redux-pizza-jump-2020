@@ -20,19 +20,19 @@ const setup = (initialState = {}) => {
 };
 
 describe('<Toppings />', () => {
-  test('Contains the toppings selector', () => {
+  test('Renders the toppings selector', () => {
     const wrapper = setup();
     const component = findByTestAttr(wrapper, 'multi-select-toppings');
     expect(component.length).toBe(1);
   });
 
-  test('Contains the back button', () => {
+  test('Renders the back button', () => {
     const wrapper = setup();
     const component = findByTestAttr(wrapper, 'button-back');
     expect(component.length).toBe(1);
   });
 
-  test('Contains the next button', () => {
+  test('Renders the next button', () => {
     const wrapper = setup();
     const component = findByTestAttr(wrapper, 'button-next');
     expect(component.length).toBe(1);
