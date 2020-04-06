@@ -7,7 +7,12 @@ import { Form, Button } from 'react-bootstrap';
 import { setCustomer } from '../actions/customer';
 import { nextMenu, previousMenu } from '../actions/menu';
 
-const Customer = ({ customerRed, setCustomer, nextMenu, previousMenu }) => {
+export const UnconnectedCustomer = ({
+  customer,
+  setCustomer,
+  nextMenu,
+  previousMenu,
+}) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -26,10 +31,10 @@ const Customer = ({ customerRed, setCustomer, nextMenu, previousMenu }) => {
     formData.phone.trim();
 
   useEffect(() => {
-    setFormData(() => ({ ...customerRed }));
+    setFormData(() => ({ ...customer }));
   }, []);
 
-  const handleInputChange = e => {
+  const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     // const name = e.target.name;
     // const value = e.target.value;
@@ -41,13 +46,13 @@ const Customer = ({ customerRed, setCustomer, nextMenu, previousMenu }) => {
     // });
   };
 
-  const handlePrev = e => {
+  const handlePrev = (e) => {
     e.preventDefault();
     // Navigate user to the previous step
     previousMenu();
   };
 
-  const handleNext = e => {
+  const handleNext = (e) => {
     e.preventDefault();
     // Update the global customer state
     setCustomer(formData);
@@ -58,7 +63,7 @@ const Customer = ({ customerRed, setCustomer, nextMenu, previousMenu }) => {
   return (
     <Fragment>
       <h1 className="display-4">Customer and Shipping</h1>
-      <Form onSubmit={e => handleNext(e)}>
+      <Form onSubmit={(e) => handleNext(e)}>
         <Form.Group controlId="customerForm.name">
           <Form.Label>Name</Form.Label>
           <Form.Control
@@ -66,7 +71,8 @@ const Customer = ({ customerRed, setCustomer, nextMenu, previousMenu }) => {
             placeholder="Your name..."
             name="name"
             value={formData.name}
-            onChange={e => handleInputChange(e)}
+            onChange={(e) => handleInputChange(e)}
+            data-test="input-customer-name"
           />
         </Form.Group>
         <Form.Group controlId="customerForm.email">
@@ -76,7 +82,8 @@ const Customer = ({ customerRed, setCustomer, nextMenu, previousMenu }) => {
             placeholder="name@example.com"
             name="email"
             value={formData.email}
-            onChange={e => handleInputChange(e)}
+            onChange={(e) => handleInputChange(e)}
+            data-test="input-customer-email"
           />
         </Form.Group>
         <Form.Group controlId="customerForm.street">
@@ -86,7 +93,8 @@ const Customer = ({ customerRed, setCustomer, nextMenu, previousMenu }) => {
             placeholder="Street and Apartment Number"
             name="street"
             value={formData.street}
-            onChange={e => handleInputChange(e)}
+            onChange={(e) => handleInputChange(e)}
+            data-test="input-customer-street"
           />
         </Form.Group>
         <Form.Group controlId="customerForm.city">
@@ -96,7 +104,8 @@ const Customer = ({ customerRed, setCustomer, nextMenu, previousMenu }) => {
             placeholder="Bellevue"
             name="city"
             value={formData.city}
-            onChange={e => handleInputChange(e)}
+            onChange={(e) => handleInputChange(e)}
+            data-test="input-customer-city"
           />
         </Form.Group>
         <Form.Group controlId="customerForm.state">
@@ -106,7 +115,8 @@ const Customer = ({ customerRed, setCustomer, nextMenu, previousMenu }) => {
             placeholder="WA"
             name="state"
             value={formData.state}
-            onChange={e => handleInputChange(e)}
+            onChange={(e) => handleInputChange(e)}
+            data-test="input-customer-state"
           />
         </Form.Group>
         <Form.Group controlId="customerForm.phone">
@@ -116,13 +126,24 @@ const Customer = ({ customerRed, setCustomer, nextMenu, previousMenu }) => {
             placeholder=""
             name="phone"
             value={formData.phone}
-            onChange={e => handleInputChange(e)}
+            onChange={(e) => handleInputChange(e)}
+            data-test="input-customer-phone"
           />
         </Form.Group>
-        <Button variant="secondary" type="button" onClick={e => handlePrev(e)}>
+        <Button
+          variant="secondary"
+          type="button"
+          onClick={(e) => handlePrev(e)}
+          data-test="button-back"
+        >
           Back
         </Button>{' '}
-        <Button variant="success" type="submit" disabled={!isValid}>
+        <Button
+          variant="success"
+          type="submit"
+          disabled={!isValid}
+          data-test="button-next"
+        >
           Review Order
         </Button>
       </Form>
@@ -130,16 +151,24 @@ const Customer = ({ customerRed, setCustomer, nextMenu, previousMenu }) => {
   );
 };
 
-Customer.propTypes = {};
+UnconnectedCustomer.propTypes = {
+  customer: PropTypes.object.isRequired,
+  setCustomer: PropTypes.func.isRequired,
+  nextMenu: PropTypes.func.isRequired,
+  previousMenu: PropTypes.func.isRequired,
+};
 
-const mapStateToProps = state => ({
-  customerRed: state.customer,
+const mapStateToProps = (state) => ({
+  customer: state.customer,
 });
 
-const mapDispatchToProps = dispatch => ({
-  setCustomer: data => dispatch(setCustomer(data)),
+const mapDispatchToProps = (dispatch) => ({
+  setCustomer: (data) => dispatch(setCustomer(data)),
   nextMenu: () => dispatch(nextMenu()),
   previousMenu: () => dispatch(previousMenu()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Customer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(UnconnectedCustomer);
