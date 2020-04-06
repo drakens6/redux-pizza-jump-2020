@@ -7,21 +7,26 @@ import { nextMenu, previousMenu } from '../actions/menu';
 
 import { TOPPINGS, SAUCE_LEVELS, CRUST_SIZES } from '../config/constants';
 
-const ReviewOrder = ({ nextMenu, previousMenu, customerRed, pizzaRed }) => {
-  const handlePrev = e => {
+export const UnconnectedReviewOrder = ({
+  nextMenu,
+  previousMenu,
+  customer,
+  pizza,
+}) => {
+  const handlePrev = (e) => {
     e.preventDefault();
     // Navigate user to the previous step
     previousMenu();
   };
 
-  const handleNext = e => {
+  const handleNext = (e) => {
     e.preventDefault();
     nextMenu();
   };
 
   // map and filter the selected toppings
   const selectedToppings = TOPPINGS.reduce((accumulator, topping) => {
-    if (pizzaRed.toppings.includes(topping.value)) {
+    if (pizza.toppings.includes(topping.value)) {
       accumulator.push(topping.label);
     }
     return accumulator;
@@ -33,80 +38,97 @@ const ReviewOrder = ({ nextMenu, previousMenu, customerRed, pizzaRed }) => {
       <div className="mb-3">
         <p className="lead mb-1">Pizza</p>
         <Row>
-          <Col>Sauce Level</Col>
+          <Col data-test="label-sauce-level">Sauce Level</Col>
           <Col>
             {
               // map sauce level id to string
-              SAUCE_LEVELS.find(sauce => sauce.value === pizzaRed.sauceLevel)
+              SAUCE_LEVELS.find((sauce) => sauce.value === pizza.sauceLevel)
                 .label
             }
           </Col>
         </Row>
         <Row>
-          <Col>Crust Size</Col>
+          <Col data-test="label-crust-size">Crust Size</Col>
           <Col>
             {
               // map crust size id to string
-              CRUST_SIZES.find(crust => crust.value === pizzaRed.crustSize)
-                .label
+              CRUST_SIZES.find((crust) => crust.value === pizza.crustSize).label
             }
           </Col>
         </Row>
         <Row>
-          <Col>Toppings</Col>
+          <Col data-test="label-toppings">Toppings</Col>
           <Col>{selectedToppings.join(', ')}</Col>
         </Row>
       </div>
       <div className="mb-3">
         <p className="lead mb-1">Customer</p>
         <Row>
-          <Col>Name</Col>
-          <Col>{customerRed.name}</Col>
+          <Col data-test="label-customer-name">Name</Col>
+          <Col>{customer.name}</Col>
         </Row>
         <Row>
-          <Col>Email</Col>
-          <Col>{customerRed.email}</Col>
+          <Col data-test="label-customer-email">Email</Col>
+          <Col>{customer.email}</Col>
         </Row>
         <Row>
-          <Col>Street</Col>
-          <Col>{customerRed.street}</Col>
+          <Col data-test="label-customer-street">Street</Col>
+          <Col>{customer.street}</Col>
         </Row>
         <Row>
-          <Col>City</Col>
-          <Col>{customerRed.city}</Col>
+          <Col data-test="label-customer-city">City</Col>
+          <Col>{customer.city}</Col>
         </Row>
         <Row>
-          <Col>State</Col>
-          <Col>{customerRed.state}</Col>
+          <Col data-test="label-customer-state">State</Col>
+          <Col>{customer.state}</Col>
         </Row>
         <Row>
-          <Col>Phone</Col>
-          <Col>{customerRed.phone}</Col>
+          <Col data-test="label-customer-phone">Phone</Col>
+          <Col>{customer.phone}</Col>
         </Row>
       </div>
       <p>
         <i>Please review your order.</i>
       </p>
-      <Button variant="secondary" type="button" onClick={e => handlePrev(e)}>
+      <Button
+        variant="secondary"
+        type="button"
+        onClick={(e) => handlePrev(e)}
+        data-test="button-back"
+      >
         Back
       </Button>{' '}
-      <Button variant="success" type="submit" onClick={e => handleNext(e)}>
+      <Button
+        variant="success"
+        type="submit"
+        onClick={(e) => handleNext(e)}
+        data-test="button-next"
+      >
         Confirm Order
       </Button>
     </Fragment>
   );
 };
 
-ReviewOrder.propTypes = {};
+UnconnectedReviewOrder.propTypes = {
+  pizza: PropTypes.object.isRequired,
+  customer: PropTypes.object.isRequired,
+  nextMenu: PropTypes.func.isRequired,
+  previousMenu: PropTypes.func.isRequired,
+};
 
-const mapStateToProps = state => ({
-  customerRed: state.customer,
-  pizzaRed: state.pizza,
+const mapStateToProps = (state) => ({
+  customer: state.customer,
+  pizza: state.pizza,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   nextMenu: () => dispatch(nextMenu()),
   previousMenu: () => dispatch(previousMenu()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReviewOrder);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(UnconnectedReviewOrder);
